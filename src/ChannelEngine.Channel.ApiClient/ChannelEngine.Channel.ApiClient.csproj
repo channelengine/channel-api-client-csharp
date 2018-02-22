@@ -4,7 +4,7 @@ ChannelEngine Channel API
 
 ChannelEngine API for channels
 
-OpenAPI spec version: 2.5.2
+OpenAPI spec version: 2.5.3
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 2.5.2
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1BE3D0B6-0990-4D69-AF26-2F6D70EBBFF8}</ProjectGuid>
+    <ProjectGuid>{99AF3BA4-5FA6-4BA1-993E-F67374A7DA5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChannelEngine.Channel.ApiClient</RootNamespace>
