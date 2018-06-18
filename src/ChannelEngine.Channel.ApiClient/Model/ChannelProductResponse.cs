@@ -67,33 +67,33 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// Initializes a new instance of the <see cref="ChannelProductResponse" /> class.
         /// </summary>
         /// <param name="id">An unique identifier which ChannelEngine uses to identify the product.  Needed in the call &#39;POST /v2/products/data&#39;.</param>
-        /// <param name="parentChannelProductNo">parentChannelProductNo.</param>
+        /// <param name="parentChannelProductNo">The unique product reference used by the Channel for the parent product.</param>
         /// <param name="mappedFields">A channel can require certain fields to be available. The channel  can provide ChannelEngine with this fields after which the merchants  will be able to fill in this field using custom conditions in ChannelEngine..</param>
-        /// <param name="name">name.</param>
-        /// <param name="description">description.</param>
-        /// <param name="brand">brand.</param>
-        /// <param name="size">size.</param>
-        /// <param name="color">color.</param>
-        /// <param name="ean">ean.</param>
-        /// <param name="manufacturerProductNumber">manufacturerProductNumber.</param>
-        /// <param name="stock">stock.</param>
+        /// <param name="name">The name of the product.</param>
+        /// <param name="description">A description of the product.</param>
+        /// <param name="brand">The brand of the product.</param>
+        /// <param name="size">Optional. The size of the product (variant). E.g. fashion size (S-XL, 46-56, etc), width of the watch, etc...</param>
+        /// <param name="color">Optional. The color of the product (variant)..</param>
+        /// <param name="ean">The EAN of GTIN of the product.</param>
+        /// <param name="manufacturerProductNumber">The unique product reference used by the manufacturer/vendor of the product.</param>
+        /// <param name="stock">The number of items in stock.</param>
         /// <param name="price">Price, including VAT..</param>
         /// <param name="mSRP">Manufacturer&#39;s suggested retail price.</param>
-        /// <param name="purchasePrice">purchasePrice.</param>
+        /// <param name="purchasePrice">Optional. The purchase price of the product. Useful for repricing..</param>
         /// <param name="vatRateType">The type of VAT which applies to this product.  See: http://ec.europa.eu/taxation_customs/taxation/vat/topics/rates_en.htm.</param>
-        /// <param name="shippingCost">shippingCost.</param>
+        /// <param name="shippingCost">Shipping cost of the product..</param>
         /// <param name="shippingTime">A textual representation of the shippingtime.  For example, in Dutch: &#39;Op werkdagen voor 22:00 uur besteld, morgen in huis&#39;.</param>
         /// <param name="url">A URL pointing to the merchant&#39;s webpage  which displays this product..</param>
         /// <param name="imageUrl">A URL at which an image of this product  can be found..</param>
-        /// <param name="extraImageUrl1">extraImageUrl1.</param>
-        /// <param name="extraImageUrl2">extraImageUrl2.</param>
-        /// <param name="extraImageUrl3">extraImageUrl3.</param>
-        /// <param name="extraImageUrl4">extraImageUrl4.</param>
-        /// <param name="extraImageUrl5">extraImageUrl5.</param>
-        /// <param name="extraImageUrl6">extraImageUrl6.</param>
-        /// <param name="extraImageUrl7">extraImageUrl7.</param>
-        /// <param name="extraImageUrl8">extraImageUrl8.</param>
-        /// <param name="extraImageUrl9">extraImageUrl9.</param>
+        /// <param name="extraImageUrl1">Url to an additional image of product (1).</param>
+        /// <param name="extraImageUrl2">Url to an additional image of product (2).</param>
+        /// <param name="extraImageUrl3">Url to an additional image of product (3).</param>
+        /// <param name="extraImageUrl4">Url to an additional image of product (4).</param>
+        /// <param name="extraImageUrl5">Url to an additional image of product (5).</param>
+        /// <param name="extraImageUrl6">Url to an additional image of product (6).</param>
+        /// <param name="extraImageUrl7">Url to an additional image of product (7).</param>
+        /// <param name="extraImageUrl8">Url to an additional image of product (8).</param>
+        /// <param name="extraImageUrl9">Url to an additional image of product (9).</param>
         /// <param name="categoryTrail">The category to which this product belongs.  Please supply this field in the following format:  &#39;maincategory &amp;gt; category &amp;gt; subcategory&#39;  For example:  &#39;vehicles &amp;gt; bikes &amp;gt; mountainbike&#39;.</param>
         /// <param name="extraData">An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products..</param>
         public ChannelProductResponse(int? id = default(int?), string parentChannelProductNo = default(string), Dictionary<string, string> mappedFields = default(Dictionary<string, string>), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), double? price = default(double?), double? mSRP = default(double?), double? purchasePrice = default(double?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), double? shippingCost = default(double?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string), List<ExtraDataItem> extraData = default(List<ExtraDataItem>))
@@ -138,8 +138,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public int? Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParentChannelProductNo
+        /// The unique product reference used by the Channel for the parent product
         /// </summary>
+        /// <value>The unique product reference used by the Channel for the parent product</value>
         [DataMember(Name="ParentChannelProductNo", EmitDefaultValue=false)]
         public string ParentChannelProductNo { get; set; }
 
@@ -151,50 +152,58 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public Dictionary<string, string> MappedFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The name of the product
         /// </summary>
+        /// <value>The name of the product</value>
         [DataMember(Name="Name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// A description of the product
         /// </summary>
+        /// <value>A description of the product</value>
         [DataMember(Name="Description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Brand
+        /// The brand of the product
         /// </summary>
+        /// <value>The brand of the product</value>
         [DataMember(Name="Brand", EmitDefaultValue=false)]
         public string Brand { get; set; }
 
         /// <summary>
-        /// Gets or Sets Size
+        /// Optional. The size of the product (variant). E.g. fashion size (S-XL, 46-56, etc), width of the watch, etc..
         /// </summary>
+        /// <value>Optional. The size of the product (variant). E.g. fashion size (S-XL, 46-56, etc), width of the watch, etc..</value>
         [DataMember(Name="Size", EmitDefaultValue=false)]
         public string Size { get; set; }
 
         /// <summary>
-        /// Gets or Sets Color
+        /// Optional. The color of the product (variant).
         /// </summary>
+        /// <value>Optional. The color of the product (variant).</value>
         [DataMember(Name="Color", EmitDefaultValue=false)]
         public string Color { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ean
+        /// The EAN of GTIN of the product
         /// </summary>
+        /// <value>The EAN of GTIN of the product</value>
         [DataMember(Name="Ean", EmitDefaultValue=false)]
         public string Ean { get; set; }
 
         /// <summary>
-        /// Gets or Sets ManufacturerProductNumber
+        /// The unique product reference used by the manufacturer/vendor of the product
         /// </summary>
+        /// <value>The unique product reference used by the manufacturer/vendor of the product</value>
         [DataMember(Name="ManufacturerProductNumber", EmitDefaultValue=false)]
         public string ManufacturerProductNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets Stock
+        /// The number of items in stock
         /// </summary>
+        /// <value>The number of items in stock</value>
         [DataMember(Name="Stock", EmitDefaultValue=false)]
         public int? Stock { get; set; }
 
@@ -213,15 +222,17 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public double? MSRP { get; set; }
 
         /// <summary>
-        /// Gets or Sets PurchasePrice
+        /// Optional. The purchase price of the product. Useful for repricing.
         /// </summary>
+        /// <value>Optional. The purchase price of the product. Useful for repricing.</value>
         [DataMember(Name="PurchasePrice", EmitDefaultValue=false)]
         public double? PurchasePrice { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets ShippingCost
+        /// Shipping cost of the product.
         /// </summary>
+        /// <value>Shipping cost of the product.</value>
         [DataMember(Name="ShippingCost", EmitDefaultValue=false)]
         public double? ShippingCost { get; set; }
 
@@ -247,56 +258,65 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl1
+        /// Url to an additional image of product (1)
         /// </summary>
+        /// <value>Url to an additional image of product (1)</value>
         [DataMember(Name="ExtraImageUrl1", EmitDefaultValue=false)]
         public string ExtraImageUrl1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl2
+        /// Url to an additional image of product (2)
         /// </summary>
+        /// <value>Url to an additional image of product (2)</value>
         [DataMember(Name="ExtraImageUrl2", EmitDefaultValue=false)]
         public string ExtraImageUrl2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl3
+        /// Url to an additional image of product (3)
         /// </summary>
+        /// <value>Url to an additional image of product (3)</value>
         [DataMember(Name="ExtraImageUrl3", EmitDefaultValue=false)]
         public string ExtraImageUrl3 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl4
+        /// Url to an additional image of product (4)
         /// </summary>
+        /// <value>Url to an additional image of product (4)</value>
         [DataMember(Name="ExtraImageUrl4", EmitDefaultValue=false)]
         public string ExtraImageUrl4 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl5
+        /// Url to an additional image of product (5)
         /// </summary>
+        /// <value>Url to an additional image of product (5)</value>
         [DataMember(Name="ExtraImageUrl5", EmitDefaultValue=false)]
         public string ExtraImageUrl5 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl6
+        /// Url to an additional image of product (6)
         /// </summary>
+        /// <value>Url to an additional image of product (6)</value>
         [DataMember(Name="ExtraImageUrl6", EmitDefaultValue=false)]
         public string ExtraImageUrl6 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl7
+        /// Url to an additional image of product (7)
         /// </summary>
+        /// <value>Url to an additional image of product (7)</value>
         [DataMember(Name="ExtraImageUrl7", EmitDefaultValue=false)]
         public string ExtraImageUrl7 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl8
+        /// Url to an additional image of product (8)
         /// </summary>
+        /// <value>Url to an additional image of product (8)</value>
         [DataMember(Name="ExtraImageUrl8", EmitDefaultValue=false)]
         public string ExtraImageUrl8 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraImageUrl9
+        /// Url to an additional image of product (9)
         /// </summary>
+        /// <value>Url to an additional image of product (9)</value>
         [DataMember(Name="ExtraImageUrl9", EmitDefaultValue=false)]
         public string ExtraImageUrl9 { get; set; }
 

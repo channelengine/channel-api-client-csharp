@@ -95,8 +95,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelOrderLineRequest" /> class.
         /// </summary>
-        /// <param name="channelProductNo">channelProductNo (required).</param>
-        /// <param name="quantity">quantity (required).</param>
+        /// <param name="channelProductNo">The unique order reference used by the channel (required).</param>
+        /// <param name="quantity">The number of items of the product (required).</param>
         /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine (required).</param>
         /// <param name="unitPriceInclVat">The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
@@ -146,14 +146,16 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChannelProductNo
+        /// The unique order reference used by the channel
         /// </summary>
+        /// <value>The unique order reference used by the channel</value>
         [DataMember(Name="ChannelProductNo", EmitDefaultValue=false)]
         public string ChannelProductNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// The number of items of the product
         /// </summary>
+        /// <value>The number of items of the product</value>
         [DataMember(Name="Quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
 

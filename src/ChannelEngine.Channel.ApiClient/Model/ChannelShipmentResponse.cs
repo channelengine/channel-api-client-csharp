@@ -38,11 +38,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelShipmentResponse" /> class.
         /// </summary>
-        /// <param name="channelOrderNo">channelOrderNo (required).</param>
+        /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
         /// <param name="lines">lines (required).</param>
-        /// <param name="trackTraceNo">trackTraceNo.</param>
-        /// <param name="trackTraceUrl">trackTraceUrl.</param>
-        /// <param name="method">method.</param>
+        /// <param name="trackTraceNo">The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number).</param>
+        /// <param name="trackTraceUrl">A link to a page of the carrier where the customer can track the shipping of her package..</param>
+        /// <param name="method">Shipment method (carrier).</param>
         public ChannelShipmentResponse(string channelOrderNo = default(string), List<ChannelShipmentLineResponse> lines = default(List<ChannelShipmentLineResponse>), string trackTraceNo = default(string), string trackTraceUrl = default(string), string method = default(string))
         {
             // to ensure "channelOrderNo" is required (not null)
@@ -69,8 +69,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChannelOrderNo
+        /// The unique order reference used by the Channel
         /// </summary>
+        /// <value>The unique order reference used by the Channel</value>
         [DataMember(Name="ChannelOrderNo", EmitDefaultValue=false)]
         public string ChannelOrderNo { get; set; }
 
@@ -81,20 +82,23 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public List<ChannelShipmentLineResponse> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrackTraceNo
+        /// The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number)
         /// </summary>
+        /// <value>The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number)</value>
         [DataMember(Name="TrackTraceNo", EmitDefaultValue=false)]
         public string TrackTraceNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrackTraceUrl
+        /// A link to a page of the carrier where the customer can track the shipping of her package.
         /// </summary>
+        /// <value>A link to a page of the carrier where the customer can track the shipping of her package.</value>
         [DataMember(Name="TrackTraceUrl", EmitDefaultValue=false)]
         public string TrackTraceUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Method
+        /// Shipment method (carrier)
         /// </summary>
+        /// <value>Shipment method (carrier)</value>
         [DataMember(Name="Method", EmitDefaultValue=false)]
         public string Method { get; set; }
 

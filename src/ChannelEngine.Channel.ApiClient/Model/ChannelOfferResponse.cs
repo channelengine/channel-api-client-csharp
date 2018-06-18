@@ -33,7 +33,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelOfferResponse" /> class.
         /// </summary>
-        /// <param name="channelProductNo">channelProductNo.</param>
+        /// <param name="channelProductNo">The unique product reference used by the Channel.</param>
         /// <param name="price">price.</param>
         /// <param name="stock">stock.</param>
         public ChannelOfferResponse(string channelProductNo = default(string), double? price = default(double?), int? stock = default(int?))
@@ -44,8 +44,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChannelProductNo
+        /// The unique product reference used by the Channel
         /// </summary>
+        /// <value>The unique product reference used by the Channel</value>
         [DataMember(Name="ChannelProductNo", EmitDefaultValue=false)]
         public string ChannelProductNo { get; set; }
 

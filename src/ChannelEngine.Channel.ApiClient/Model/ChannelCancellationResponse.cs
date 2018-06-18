@@ -31,8 +31,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
     public partial class ChannelCancellationResponse :  IEquatable<ChannelCancellationResponse>, IValidatableObject
     {
         /// <summary>
-        /// Defines ReasonCode
+        /// Reason code for cancellation
         /// </summary>
+        /// <value>Reason code for cancellation</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReasonCodeEnum
         {
@@ -75,8 +76,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets ReasonCode
+        /// Reason code for cancellation
         /// </summary>
+        /// <value>Reason code for cancellation</value>
         [DataMember(Name="ReasonCode", EmitDefaultValue=false)]
         public ReasonCodeEnum? ReasonCode { get; set; }
         /// <summary>
@@ -87,10 +89,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelCancellationResponse" /> class.
         /// </summary>
-        /// <param name="channelOrderNo">channelOrderNo (required).</param>
+        /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
         /// <param name="lines">lines (required).</param>
-        /// <param name="reason">reason.</param>
-        /// <param name="reasonCode">reasonCode.</param>
+        /// <param name="reason">Reason for cancellation (text).</param>
+        /// <param name="reasonCode">Reason code for cancellation.</param>
         public ChannelCancellationResponse(string channelOrderNo = default(string), List<ChannelCancellationLineResponse> lines = default(List<ChannelCancellationLineResponse>), string reason = default(string), ReasonCodeEnum? reasonCode = default(ReasonCodeEnum?))
         {
             // to ensure "channelOrderNo" is required (not null)
@@ -116,8 +118,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChannelOrderNo
+        /// The unique order reference used by the Channel
         /// </summary>
+        /// <value>The unique order reference used by the Channel</value>
         [DataMember(Name="ChannelOrderNo", EmitDefaultValue=false)]
         public string ChannelOrderNo { get; set; }
 
@@ -128,8 +131,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public List<ChannelCancellationLineResponse> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reason
+        /// Reason for cancellation (text)
         /// </summary>
+        /// <value>Reason for cancellation (text)</value>
         [DataMember(Name="Reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

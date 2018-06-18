@@ -40,18 +40,18 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
         /// <param name="lines">The order lines (required).</param>
-        /// <param name="phone">phone.</param>
-        /// <param name="email">email (required).</param>
+        /// <param name="phone">The customer&#39;s telephone number.</param>
+        /// <param name="email">The customer&#39;s email (required).</param>
         /// <param name="companyRegistrationNo">Optional. A company&#39;s chamber of commerce number.</param>
         /// <param name="vatNo">Optional. A company&#39;s VAT number.</param>
-        /// <param name="paymentMethod">paymentMethod (required).</param>
+        /// <param name="paymentMethod">The payment method used on the order (required).</param>
         /// <param name="shippingCostsInclVat">The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
-        /// <param name="currencyCode">currencyCode (required).</param>
-        /// <param name="orderDate">orderDate (required).</param>
-        /// <param name="channelCustomerNo">channelCustomerNo.</param>
-        /// <param name="billingAddress">billingAddress (required).</param>
-        /// <param name="shippingAddress">shippingAddress (required).</param>
-        /// <param name="extraData">extraData.</param>
+        /// <param name="currencyCode">The currency code for the amounts of the order (required).</param>
+        /// <param name="orderDate">The date the order was done (required).</param>
+        /// <param name="channelCustomerNo">The unique customer reference used by the channel.</param>
+        /// <param name="billingAddress">The billing or invoice address (required).</param>
+        /// <param name="shippingAddress">The shipping address (required).</param>
+        /// <param name="extraData">Extra data on the order.</param>
         public ChannelOrderRequest(string channelOrderNo = default(string), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), double? shippingCostsInclVat = default(double?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "channelOrderNo" is required (not null)
@@ -157,14 +157,16 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public List<ChannelOrderLineRequest> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets Phone
+        /// The customer&#39;s telephone number
         /// </summary>
+        /// <value>The customer&#39;s telephone number</value>
         [DataMember(Name="Phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// The customer&#39;s email
         /// </summary>
+        /// <value>The customer&#39;s email</value>
         [DataMember(Name="Email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -183,8 +185,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public string VatNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaymentMethod
+        /// The payment method used on the order
         /// </summary>
+        /// <value>The payment method used on the order</value>
         [DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
 
@@ -196,38 +199,44 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public double? ShippingCostsInclVat { get; set; }
 
         /// <summary>
-        /// Gets or Sets CurrencyCode
+        /// The currency code for the amounts of the order
         /// </summary>
+        /// <value>The currency code for the amounts of the order</value>
         [DataMember(Name="CurrencyCode", EmitDefaultValue=false)]
         public string CurrencyCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrderDate
+        /// The date the order was done
         /// </summary>
+        /// <value>The date the order was done</value>
         [DataMember(Name="OrderDate", EmitDefaultValue=false)]
         public DateTime? OrderDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChannelCustomerNo
+        /// The unique customer reference used by the channel
         /// </summary>
+        /// <value>The unique customer reference used by the channel</value>
         [DataMember(Name="ChannelCustomerNo", EmitDefaultValue=false)]
         public string ChannelCustomerNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets BillingAddress
+        /// The billing or invoice address
         /// </summary>
+        /// <value>The billing or invoice address</value>
         [DataMember(Name="BillingAddress", EmitDefaultValue=false)]
         public Address BillingAddress { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShippingAddress
+        /// The shipping address
         /// </summary>
+        /// <value>The shipping address</value>
         [DataMember(Name="ShippingAddress", EmitDefaultValue=false)]
         public Address ShippingAddress { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraData
+        /// Extra data on the order
         /// </summary>
+        /// <value>Extra data on the order</value>
         [DataMember(Name="ExtraData", EmitDefaultValue=false)]
         public Dictionary<string, string> ExtraData { get; set; }
 

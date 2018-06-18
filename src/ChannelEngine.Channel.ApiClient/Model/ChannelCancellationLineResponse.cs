@@ -38,8 +38,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelCancellationLineResponse" /> class.
         /// </summary>
-        /// <param name="channelProductNo">channelProductNo (required).</param>
-        /// <param name="quantity">quantity (required).</param>
+        /// <param name="channelProductNo">The unique product reference used by the Channel (required).</param>
+        /// <param name="quantity">Quantity of the product to cancel (required).</param>
         public ChannelCancellationLineResponse(string channelProductNo = default(string), int? quantity = default(int?))
         {
             // to ensure "channelProductNo" is required (not null)
@@ -63,14 +63,16 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChannelProductNo
+        /// The unique product reference used by the Channel
         /// </summary>
+        /// <value>The unique product reference used by the Channel</value>
         [DataMember(Name="ChannelProductNo", EmitDefaultValue=false)]
         public string ChannelProductNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity of the product to cancel
         /// </summary>
+        /// <value>Quantity of the product to cancel</value>
         [DataMember(Name="Quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
 
