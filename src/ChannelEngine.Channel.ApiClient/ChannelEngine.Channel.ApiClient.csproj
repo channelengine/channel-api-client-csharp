@@ -12,7 +12,7 @@ OpenAPI spec version: 2.0.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1EA3750-52E0-4AC4-B338-538F893FCCB8}</ProjectGuid>
+    <ProjectGuid>{751D72B6-AD68-484C-919D-E8152419569E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChannelEngine.Channel.ApiClient</RootNamespace>

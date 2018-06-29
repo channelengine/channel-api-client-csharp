@@ -36,7 +36,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="channelProductNo">The unique product reference used by the Channel.</param>
         /// <param name="price">price.</param>
         /// <param name="stock">stock.</param>
-        public ChannelOfferResponse(string channelProductNo = default(string), double? price = default(double?), int? stock = default(int?))
+        public ChannelOfferResponse(string channelProductNo = default(string), decimal? price = default(decimal?), int? stock = default(int?))
         {
             this.ChannelProductNo = channelProductNo;
             this.Price = price;
@@ -54,7 +54,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name="Price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Stock

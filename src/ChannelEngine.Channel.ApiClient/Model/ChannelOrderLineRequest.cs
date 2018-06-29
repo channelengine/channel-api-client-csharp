@@ -102,7 +102,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="feeRate">A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="condition">The condition of the product, this can be used to indicate that a product is a second-hand product.</param>
-        public ChannelOrderLineRequest(string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), double? unitPriceInclVat = default(double?), double? feeFixed = default(double?), double? feeRate = default(double?), ConditionEnum? condition = default(ConditionEnum?))
+        public ChannelOrderLineRequest(string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), decimal? unitPriceInclVat = default(decimal?), decimal? feeFixed = default(decimal?), decimal? feeRate = default(decimal?), ConditionEnum? condition = default(ConditionEnum?))
         {
             // to ensure "channelProductNo" is required (not null)
             if (channelProductNo == null)
@@ -171,21 +171,21 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <value>The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="UnitPriceInclVat", EmitDefaultValue=false)]
-        public double? UnitPriceInclVat { get; set; }
+        public decimal? UnitPriceInclVat { get; set; }
 
         /// <summary>
         /// A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
         /// </summary>
         /// <value>A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.</value>
         [DataMember(Name="FeeFixed", EmitDefaultValue=false)]
-        public double? FeeFixed { get; set; }
+        public decimal? FeeFixed { get; set; }
 
         /// <summary>
         /// A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
         /// </summary>
         /// <value>A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.</value>
         [DataMember(Name="FeeRate", EmitDefaultValue=false)]
-        public double? FeeRate { get; set; }
+        public decimal? FeeRate { get; set; }
 
 
         /// <summary>

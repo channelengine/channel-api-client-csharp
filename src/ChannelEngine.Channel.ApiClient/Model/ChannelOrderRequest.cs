@@ -52,7 +52,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="billingAddress">The billing or invoice address (required).</param>
         /// <param name="shippingAddress">The shipping address (required).</param>
         /// <param name="extraData">Extra data on the order.</param>
-        public ChannelOrderRequest(string channelOrderNo = default(string), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), double? shippingCostsInclVat = default(double?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
+        public ChannelOrderRequest(string channelOrderNo = default(string), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "channelOrderNo" is required (not null)
             if (channelOrderNo == null)
@@ -196,7 +196,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <value>The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="ShippingCostsInclVat", EmitDefaultValue=false)]
-        public double? ShippingCostsInclVat { get; set; }
+        public decimal? ShippingCostsInclVat { get; set; }
 
         /// <summary>
         /// The currency code for the amounts of the order
