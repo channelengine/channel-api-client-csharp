@@ -3,5 +3,6 @@
 	"apiPackage": "Api",
 	"packageName": "ChannelEngine.Channel.ApiClient",
 	"gitUserId": "channelengine",
-	"gitRepoId": "channel-api-client-csharp"
+	"gitRepoId": "channel-api-client-csharp",
+	"targetFramework": "v5.0"
 }
