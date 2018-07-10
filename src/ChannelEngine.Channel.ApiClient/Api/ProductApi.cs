@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Channel.ApiClient.Client;
 using ChannelEngine.Channel.ApiClient.Model;
 
@@ -314,7 +314,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (changes == null)
                 throw new ApiException(400, "Missing required parameter 'changes' when calling ProductApi->ProductAcknowledgeDataChanges");
 
-            var localVarPath = "/v2/products/data";
+            var localVarPath = "./v2/products/data";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -370,7 +370,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -399,7 +399,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (changes == null)
                 throw new ApiException(400, "Missing required parameter 'changes' when calling ProductApi->ProductAcknowledgeDataChanges");
 
-            var localVarPath = "/v2/products/data";
+            var localVarPath = "./v2/products/data";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -455,7 +455,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -483,7 +483,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (changes == null)
                 throw new ApiException(400, "Missing required parameter 'changes' when calling ProductApi->ProductAcknowledgeOfferChanges");
 
-            var localVarPath = "/v2/products/offers";
+            var localVarPath = "./v2/products/offers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -539,7 +539,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -568,7 +568,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (changes == null)
                 throw new ApiException(400, "Missing required parameter 'changes' when calling ProductApi->ProductAcknowledgeOfferChanges");
 
-            var localVarPath = "/v2/products/offers";
+            var localVarPath = "./v2/products/offers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -624,7 +624,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -649,7 +649,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public ApiResponse< SingleOfChannelProductChangesResponse > ProductGetDataChangesWithHttpInfo (int? maxCount = null)
         {
 
-            var localVarPath = "/v2/products/data";
+            var localVarPath = "./v2/products/data";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -693,7 +693,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<SingleOfChannelProductChangesResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SingleOfChannelProductChangesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleOfChannelProductChangesResponse)));
         }
 
@@ -719,7 +719,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<SingleOfChannelProductChangesResponse>> ProductGetDataChangesAsyncWithHttpInfo (int? maxCount = null)
         {
 
-            var localVarPath = "/v2/products/data";
+            var localVarPath = "./v2/products/data";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -763,7 +763,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<SingleOfChannelProductChangesResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SingleOfChannelProductChangesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleOfChannelProductChangesResponse)));
         }
 
@@ -786,7 +786,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public ApiResponse< CollectionOfChannelOfferResponse > ProductGetOfferChangesWithHttpInfo ()
         {
 
-            var localVarPath = "/v2/products/offers";
+            var localVarPath = "./v2/products/offers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -829,7 +829,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfChannelOfferResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfChannelOfferResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfChannelOfferResponse)));
         }
 
@@ -853,7 +853,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelOfferResponse>> ProductGetOfferChangesAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/v2/products/offers";
+            var localVarPath = "./v2/products/offers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -896,7 +896,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfChannelOfferResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfChannelOfferResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfChannelOfferResponse)));
         }
 
