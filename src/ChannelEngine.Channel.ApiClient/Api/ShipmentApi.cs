@@ -31,9 +31,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>CollectionOfChannelShipmentResponse</returns>
-        CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince);
+        CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince = null);
 
         /// <summary>
         /// Get Shipments
@@ -42,9 +42,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelShipmentResponse</returns>
-        ApiResponse<CollectionOfChannelShipmentResponse> ShipmentIndexWithHttpInfo (DateTime? createdSince);
+        ApiResponse<CollectionOfChannelShipmentResponse> ShipmentIndexWithHttpInfo (DateTime? createdSince = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,9 +54,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of CollectionOfChannelShipmentResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince);
+        System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince = null);
 
         /// <summary>
         /// Get Shipments
@@ -65,9 +65,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelShipmentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince = null);
         #endregion Asynchronous Operations
     }
 
@@ -172,9 +172,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>CollectionOfChannelShipmentResponse</returns>
-        public CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince)
+        public CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince = null)
         {
              ApiResponse<CollectionOfChannelShipmentResponse> localVarResponse = ShipmentIndexWithHttpInfo(createdSince);
              return localVarResponse.Data;
@@ -184,13 +184,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelShipmentResponse</returns>
-        public ApiResponse< CollectionOfChannelShipmentResponse > ShipmentIndexWithHttpInfo (DateTime? createdSince)
+        public ApiResponse< CollectionOfChannelShipmentResponse > ShipmentIndexWithHttpInfo (DateTime? createdSince = null)
         {
-            // verify the required parameter 'createdSince' is set
-            if (createdSince == null)
-                throw new ApiException(400, "Missing required parameter 'createdSince' when calling ShipmentApi->ShipmentIndex");
 
             var localVarPath = "./v2/shipments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -207,6 +204,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -244,9 +242,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of CollectionOfChannelShipmentResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince)
+        public async System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince = null)
         {
              ApiResponse<CollectionOfChannelShipmentResponse> localVarResponse = await ShipmentIndexAsyncWithHttpInfo(createdSince);
              return localVarResponse.Data;
@@ -257,13 +255,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelShipmentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince = null)
         {
-            // verify the required parameter 'createdSince' is set
-            if (createdSince == null)
-                throw new ApiException(400, "Missing required parameter 'createdSince' when calling ShipmentApi->ShipmentIndex");
 
             var localVarPath = "./v2/shipments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -280,6 +275,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };

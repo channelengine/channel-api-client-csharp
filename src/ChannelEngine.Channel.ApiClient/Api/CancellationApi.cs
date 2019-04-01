@@ -31,9 +31,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all cancellations created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>CollectionOfChannelCancellationResponse</returns>
-        CollectionOfChannelCancellationResponse CancellationIndex (DateTime? createdSince);
+        CollectionOfChannelCancellationResponse CancellationIndex (DateTime? createdSince = null);
 
         /// <summary>
         /// Get Cancellations
@@ -42,9 +42,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all cancellations created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelCancellationResponse</returns>
-        ApiResponse<CollectionOfChannelCancellationResponse> CancellationIndexWithHttpInfo (DateTime? createdSince);
+        ApiResponse<CollectionOfChannelCancellationResponse> CancellationIndexWithHttpInfo (DateTime? createdSince = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,9 +54,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all cancellations created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of CollectionOfChannelCancellationResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfChannelCancellationResponse> CancellationIndexAsync (DateTime? createdSince);
+        System.Threading.Tasks.Task<CollectionOfChannelCancellationResponse> CancellationIndexAsync (DateTime? createdSince = null);
 
         /// <summary>
         /// Get Cancellations
@@ -65,9 +65,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all cancellations created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelCancellationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelCancellationResponse>> CancellationIndexAsyncWithHttpInfo (DateTime? createdSince);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelCancellationResponse>> CancellationIndexAsyncWithHttpInfo (DateTime? createdSince = null);
         #endregion Asynchronous Operations
     }
 
@@ -172,9 +172,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Cancellations Gets all cancellations created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>CollectionOfChannelCancellationResponse</returns>
-        public CollectionOfChannelCancellationResponse CancellationIndex (DateTime? createdSince)
+        public CollectionOfChannelCancellationResponse CancellationIndex (DateTime? createdSince = null)
         {
              ApiResponse<CollectionOfChannelCancellationResponse> localVarResponse = CancellationIndexWithHttpInfo(createdSince);
              return localVarResponse.Data;
@@ -184,13 +184,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Cancellations Gets all cancellations created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelCancellationResponse</returns>
-        public ApiResponse< CollectionOfChannelCancellationResponse > CancellationIndexWithHttpInfo (DateTime? createdSince)
+        public ApiResponse< CollectionOfChannelCancellationResponse > CancellationIndexWithHttpInfo (DateTime? createdSince = null)
         {
-            // verify the required parameter 'createdSince' is set
-            if (createdSince == null)
-                throw new ApiException(400, "Missing required parameter 'createdSince' when calling CancellationApi->CancellationIndex");
 
             var localVarPath = "./v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
@@ -207,6 +204,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -244,9 +242,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Cancellations Gets all cancellations created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of CollectionOfChannelCancellationResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfChannelCancellationResponse> CancellationIndexAsync (DateTime? createdSince)
+        public async System.Threading.Tasks.Task<CollectionOfChannelCancellationResponse> CancellationIndexAsync (DateTime? createdSince = null)
         {
              ApiResponse<CollectionOfChannelCancellationResponse> localVarResponse = await CancellationIndexAsyncWithHttpInfo(createdSince);
              return localVarResponse.Data;
@@ -257,13 +255,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Cancellations Gets all cancellations created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelCancellationResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelCancellationResponse>> CancellationIndexAsyncWithHttpInfo (DateTime? createdSince)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelCancellationResponse>> CancellationIndexAsyncWithHttpInfo (DateTime? createdSince = null)
         {
-            // verify the required parameter 'createdSince' is set
-            if (createdSince == null)
-                throw new ApiException(400, "Missing required parameter 'createdSince' when calling CancellationApi->CancellationIndex");
 
             var localVarPath = "./v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
@@ -280,6 +275,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };

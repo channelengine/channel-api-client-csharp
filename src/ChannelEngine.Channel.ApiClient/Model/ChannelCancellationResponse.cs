@@ -89,9 +89,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
         /// <param name="lines">lines (required).</param>
+        /// <param name="createdAt">The date at which the cancellation was created in ChannelEngine.</param>
+        /// <param name="updatedAt">The date at which the cancellation was last modified in ChannelEngine.</param>
         /// <param name="reason">Reason for cancellation (text).</param>
         /// <param name="reasonCode">Reason code for cancellation.</param>
-        public ChannelCancellationResponse(string channelOrderNo = default(string), List<ChannelCancellationLineResponse> lines = default(List<ChannelCancellationLineResponse>), string reason = default(string), ReasonCodeEnum? reasonCode = default(ReasonCodeEnum?))
+        public ChannelCancellationResponse(string channelOrderNo = default(string), List<ChannelCancellationLineResponse> lines = default(List<ChannelCancellationLineResponse>), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string reason = default(string), ReasonCodeEnum? reasonCode = default(ReasonCodeEnum?))
         {
             // to ensure "channelOrderNo" is required (not null)
             if (channelOrderNo == null)
@@ -111,6 +113,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
             {
                 this.Lines = lines;
             }
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
             this.Reason = reason;
             this.ReasonCode = reasonCode;
         }
@@ -127,6 +131,20 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         [DataMember(Name="Lines", EmitDefaultValue=false)]
         public List<ChannelCancellationLineResponse> Lines { get; set; }
+
+        /// <summary>
+        /// The date at which the cancellation was created in ChannelEngine
+        /// </summary>
+        /// <value>The date at which the cancellation was created in ChannelEngine</value>
+        [DataMember(Name="CreatedAt", EmitDefaultValue=false)]
+        public DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The date at which the cancellation was last modified in ChannelEngine
+        /// </summary>
+        /// <value>The date at which the cancellation was last modified in ChannelEngine</value>
+        [DataMember(Name="UpdatedAt", EmitDefaultValue=false)]
+        public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Reason for cancellation (text)
@@ -146,6 +164,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
             sb.Append("class ChannelCancellationResponse {\n");
             sb.Append("  ChannelOrderNo: ").Append(ChannelOrderNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
             sb.Append("}\n");
@@ -193,6 +213,16 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
                     this.Reason == input.Reason ||
                     (this.Reason != null &&
                     this.Reason.Equals(input.Reason))
@@ -217,6 +247,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.ReasonCode != null)

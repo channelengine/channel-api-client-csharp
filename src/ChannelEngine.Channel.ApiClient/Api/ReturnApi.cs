@@ -52,9 +52,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>CollectionOfChannelReturnResponse</returns>
-        CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant (DateTime? createdSince);
+        CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant (DateTime? createdSince = null);
 
         /// <summary>
         /// Get Returns
@@ -63,9 +63,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelReturnResponse</returns>
-        ApiResponse<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantWithHttpInfo (DateTime? createdSince);
+        ApiResponse<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantWithHttpInfo (DateTime? createdSince = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -96,9 +96,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of CollectionOfChannelReturnResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync (DateTime? createdSince);
+        System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync (DateTime? createdSince = null);
 
         /// <summary>
         /// Get Returns
@@ -107,9 +107,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelReturnResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantAsyncWithHttpInfo (DateTime? createdSince);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantAsyncWithHttpInfo (DateTime? createdSince = null);
         #endregion Asynchronous Operations
     }
 
@@ -244,14 +244,16 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/x-www-form-urlencoded"
+                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -327,14 +329,16 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/x-www-form-urlencoded"
+                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -379,9 +383,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Returns Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>CollectionOfChannelReturnResponse</returns>
-        public CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant (DateTime? createdSince)
+        public CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant (DateTime? createdSince = null)
         {
              ApiResponse<CollectionOfChannelReturnResponse> localVarResponse = ReturnGetDeclaredByMerchantWithHttpInfo(createdSince);
              return localVarResponse.Data;
@@ -391,13 +395,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Returns Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelReturnResponse</returns>
-        public ApiResponse< CollectionOfChannelReturnResponse > ReturnGetDeclaredByMerchantWithHttpInfo (DateTime? createdSince)
+        public ApiResponse< CollectionOfChannelReturnResponse > ReturnGetDeclaredByMerchantWithHttpInfo (DateTime? createdSince = null)
         {
-            // verify the required parameter 'createdSince' is set
-            if (createdSince == null)
-                throw new ApiException(400, "Missing required parameter 'createdSince' when calling ReturnApi->ReturnGetDeclaredByMerchant");
 
             var localVarPath = "./v2/returns/channel";
             var localVarPathParams = new Dictionary<String, String>();
@@ -414,6 +415,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -451,9 +453,9 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Returns Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of CollectionOfChannelReturnResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync (DateTime? createdSince)
+        public async System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync (DateTime? createdSince = null)
         {
              ApiResponse<CollectionOfChannelReturnResponse> localVarResponse = await ReturnGetDeclaredByMerchantAsyncWithHttpInfo(createdSince);
              return localVarResponse.Data;
@@ -464,13 +466,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Returns Get all returns created by the merchant. This call is supposed  to be used by channels. Merchants should use the &#39;GET /v2/returns/merchant&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"></param>
+        /// <param name="createdSince"> (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelReturnResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantAsyncWithHttpInfo (DateTime? createdSince)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantAsyncWithHttpInfo (DateTime? createdSince = null)
         {
-            // verify the required parameter 'createdSince' is set
-            if (createdSince == null)
-                throw new ApiException(400, "Missing required parameter 'createdSince' when calling ReturnApi->ReturnGetDeclaredByMerchant");
 
             var localVarPath = "./v2/returns/channel";
             var localVarPathParams = new Dictionary<String, String>();
@@ -487,6 +486,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };

@@ -12,7 +12,7 @@ OpenAPI spec version: 2.0.0
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8CC58474-BC08-4B11-AEFC-843C26FA0B17}</ProjectGuid>
+    <ProjectGuid>{1F6F840E-7E90-44B2-A72D-24E80A7552FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChannelEngine.Channel.ApiClient</RootNamespace>

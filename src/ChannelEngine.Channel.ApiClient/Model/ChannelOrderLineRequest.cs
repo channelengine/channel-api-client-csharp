@@ -76,7 +76,13 @@ namespace ChannelEngine.Channel.ApiClient.Model
             /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 7
+            UNKNOWN = 7,
+            
+            /// <summary>
+            /// Enum USEDVERYGOOD for value: USED_VERY_GOOD
+            /// </summary>
+            [EnumMember(Value = "USED_VERY_GOOD")]
+            USEDVERYGOOD = 8
         }
 
         /// <summary>
@@ -95,7 +101,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <param name="channelProductNo">The unique order reference used by the channel (required).</param>
         /// <param name="quantity">The number of items of the product (required).</param>
-        /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine (required).</param>
+        /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine.</param>
         /// <param name="unitPriceInclVat">The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="feeRate">A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
@@ -120,15 +126,6 @@ namespace ChannelEngine.Channel.ApiClient.Model
             {
                 this.Quantity = quantity;
             }
-            // to ensure "cancellationRequestedQuantity" is required (not null)
-            if (cancellationRequestedQuantity == null)
-            {
-                throw new InvalidDataException("cancellationRequestedQuantity is a required property for ChannelOrderLineRequest and cannot be null");
-            }
-            else
-            {
-                this.CancellationRequestedQuantity = cancellationRequestedQuantity;
-            }
             // to ensure "unitPriceInclVat" is required (not null)
             if (unitPriceInclVat == null)
             {
@@ -138,6 +135,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             {
                 this.UnitPriceInclVat = unitPriceInclVat;
             }
+            this.CancellationRequestedQuantity = cancellationRequestedQuantity;
             this.FeeFixed = feeFixed;
             this.FeeRate = feeRate;
             this.Condition = condition;

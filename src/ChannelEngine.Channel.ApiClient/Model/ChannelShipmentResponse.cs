@@ -38,10 +38,12 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
         /// <param name="lines">lines (required).</param>
+        /// <param name="createdAt">The date at which the shipment was created in ChannelEngine.</param>
+        /// <param name="updatedAt">The date at which the shipment was last modified in ChannelEngine.</param>
         /// <param name="trackTraceNo">The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number).</param>
         /// <param name="trackTraceUrl">A link to a page of the carrier where the customer can track the shipping of her package..</param>
-        /// <param name="method">Shipment method (carrier).</param>
-        public ChannelShipmentResponse(string channelOrderNo = default(string), List<ChannelShipmentLineResponse> lines = default(List<ChannelShipmentLineResponse>), string trackTraceNo = default(string), string trackTraceUrl = default(string), string method = default(string))
+        /// <param name="method">Shipment method: the carrier used for shipping the package. E.g. DHL, postNL.</param>
+        public ChannelShipmentResponse(string channelOrderNo = default(string), List<ChannelShipmentLineResponse> lines = default(List<ChannelShipmentLineResponse>), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string trackTraceNo = default(string), string trackTraceUrl = default(string), string method = default(string))
         {
             // to ensure "channelOrderNo" is required (not null)
             if (channelOrderNo == null)
@@ -61,6 +63,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
             {
                 this.Lines = lines;
             }
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
             this.TrackTraceNo = trackTraceNo;
             this.TrackTraceUrl = trackTraceUrl;
             this.Method = method;
@@ -80,6 +84,20 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public List<ChannelShipmentLineResponse> Lines { get; set; }
 
         /// <summary>
+        /// The date at which the shipment was created in ChannelEngine
+        /// </summary>
+        /// <value>The date at which the shipment was created in ChannelEngine</value>
+        [DataMember(Name="CreatedAt", EmitDefaultValue=false)]
+        public DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The date at which the shipment was last modified in ChannelEngine
+        /// </summary>
+        /// <value>The date at which the shipment was last modified in ChannelEngine</value>
+        [DataMember(Name="UpdatedAt", EmitDefaultValue=false)]
+        public DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number)
         /// </summary>
         /// <value>The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number)</value>
@@ -94,9 +112,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public string TrackTraceUrl { get; set; }
 
         /// <summary>
-        /// Shipment method (carrier)
+        /// Shipment method: the carrier used for shipping the package. E.g. DHL, postNL
         /// </summary>
-        /// <value>Shipment method (carrier)</value>
+        /// <value>Shipment method: the carrier used for shipping the package. E.g. DHL, postNL</value>
         [DataMember(Name="Method", EmitDefaultValue=false)]
         public string Method { get; set; }
 
@@ -110,6 +128,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
             sb.Append("class ChannelShipmentResponse {\n");
             sb.Append("  ChannelOrderNo: ").Append(ChannelOrderNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  TrackTraceNo: ").Append(TrackTraceNo).Append("\n");
             sb.Append("  TrackTraceUrl: ").Append(TrackTraceUrl).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
@@ -158,6 +178,16 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
                     this.TrackTraceNo == input.TrackTraceNo ||
                     (this.TrackTraceNo != null &&
                     this.TrackTraceNo.Equals(input.TrackTraceNo))
@@ -187,6 +217,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 if (this.TrackTraceNo != null)
                     hashCode = hashCode * 59 + this.TrackTraceNo.GetHashCode();
                 if (this.TrackTraceUrl != null)

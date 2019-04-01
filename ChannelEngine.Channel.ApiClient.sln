@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Channel.ApiClient", "src\ChannelEngine.Channel.ApiClient\ChannelEngine.Channel.ApiClient.csproj", "{8CC58474-BC08-4B11-AEFC-843C26FA0B17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Channel.ApiClient", "src\ChannelEngine.Channel.ApiClient\ChannelEngine.Channel.ApiClient.csproj", "{1F6F840E-7E90-44B2-A72D-24E80A7552FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8CC58474-BC08-4B11-AEFC-843C26FA0B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CC58474-BC08-4B11-AEFC-843C26FA0B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CC58474-BC08-4B11-AEFC-843C26FA0B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CC58474-BC08-4B11-AEFC-843C26FA0B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F6F840E-7E90-44B2-A72D-24E80A7552FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F6F840E-7E90-44B2-A72D-24E80A7552FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F6F840E-7E90-44B2-A72D-24E80A7552FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F6F840E-7E90-44B2-A72D-24E80A7552FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

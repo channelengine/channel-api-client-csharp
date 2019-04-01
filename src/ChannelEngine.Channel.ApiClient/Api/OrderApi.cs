@@ -53,7 +53,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream OrderInvoice (string merchantOrderNo, bool? useCustomerCulture = null);
 
@@ -65,7 +65,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> OrderInvoiceWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null);
         /// <summary>
@@ -76,7 +76,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream OrderPackingSlip (string merchantOrderNo, bool? useCustomerCulture = null);
 
@@ -88,7 +88,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> OrderPackingSlipWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null);
         #endregion Synchronous Operations
@@ -122,7 +122,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of System.IO.Stream</returns>
         System.Threading.Tasks.Task<System.IO.Stream> OrderInvoiceAsync (string merchantOrderNo, bool? useCustomerCulture = null);
 
@@ -134,7 +134,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> OrderInvoiceAsyncWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null);
         /// <summary>
@@ -145,7 +145,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of System.IO.Stream</returns>
         System.Threading.Tasks.Task<System.IO.Stream> OrderPackingSlipAsync (string merchantOrderNo, bool? useCustomerCulture = null);
 
@@ -157,7 +157,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> OrderPackingSlipAsyncWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null);
         #endregion Asynchronous Operations
@@ -294,14 +294,16 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/x-www-form-urlencoded"
+                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -377,14 +379,16 @@ namespace ChannelEngine.Channel.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/x-www-form-urlencoded"
+                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -430,7 +434,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream OrderInvoice (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -443,7 +447,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse< System.IO.Stream > OrderInvoiceWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -504,7 +508,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of System.IO.Stream</returns>
         public async System.Threading.Tasks.Task<System.IO.Stream> OrderInvoiceAsync (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -518,7 +522,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> OrderInvoiceAsyncWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -579,7 +583,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream OrderPackingSlip (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -592,7 +596,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse< System.IO.Stream > OrderPackingSlipWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -653,7 +657,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of System.IO.Stream</returns>
         public async System.Threading.Tasks.Task<System.IO.Stream> OrderPackingSlipAsync (string merchantOrderNo, bool? useCustomerCulture = null)
         {
@@ -667,7 +671,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantOrderNo">The unique order reference as used by the merchant</param>
-        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional)</param>
+        /// <param name="useCustomerCulture">Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> OrderPackingSlipAsyncWithHttpInfo (string merchantOrderNo, bool? useCustomerCulture = null)
         {
