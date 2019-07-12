@@ -38,7 +38,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelOrderRequest" /> class.
         /// </summary>
+        /// <param name="billingAddress">The billing or invoice address (required).</param>
+        /// <param name="shippingAddress">The shipping address (required).</param>
         /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
+        /// <param name="isBusinessOrder">Optional. Is a business order (default value is false).  If not provided the VAT Number will be checked. If a VAT Number is found, IsBusinessOrder will be set to true.  No VAT will be calculated when set to true..</param>
         /// <param name="lines">The order lines (required).</param>
         /// <param name="phone">The customer&#39;s telephone number.</param>
         /// <param name="email">The customer&#39;s email (required).</param>
@@ -49,11 +52,27 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="currencyCode">The currency code for the amounts of the order (required).</param>
         /// <param name="orderDate">The date the order was done (required).</param>
         /// <param name="channelCustomerNo">The unique customer reference used by the channel.</param>
-        /// <param name="billingAddress">The billing or invoice address (required).</param>
-        /// <param name="shippingAddress">The shipping address (required).</param>
         /// <param name="extraData">Extra data on the order.</param>
-        public ChannelOrderRequest(string channelOrderNo = default(string), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
+        public ChannelOrderRequest(ChannelAddressRequest billingAddress = default(ChannelAddressRequest), ChannelAddressRequest shippingAddress = default(ChannelAddressRequest), string channelOrderNo = default(string), bool? isBusinessOrder = default(bool?), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
+            // to ensure "billingAddress" is required (not null)
+            if (billingAddress == null)
+            {
+                throw new InvalidDataException("billingAddress is a required property for ChannelOrderRequest and cannot be null");
+            }
+            else
+            {
+                this.BillingAddress = billingAddress;
+            }
+            // to ensure "shippingAddress" is required (not null)
+            if (shippingAddress == null)
+            {
+                throw new InvalidDataException("shippingAddress is a required property for ChannelOrderRequest and cannot be null");
+            }
+            else
+            {
+                this.ShippingAddress = shippingAddress;
+            }
             // to ensure "channelOrderNo" is required (not null)
             if (channelOrderNo == null)
             {
@@ -108,24 +127,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             {
                 this.OrderDate = orderDate;
             }
-            // to ensure "billingAddress" is required (not null)
-            if (billingAddress == null)
-            {
-                throw new InvalidDataException("billingAddress is a required property for ChannelOrderRequest and cannot be null");
-            }
-            else
-            {
-                this.BillingAddress = billingAddress;
-            }
-            // to ensure "shippingAddress" is required (not null)
-            if (shippingAddress == null)
-            {
-                throw new InvalidDataException("shippingAddress is a required property for ChannelOrderRequest and cannot be null");
-            }
-            else
-            {
-                this.ShippingAddress = shippingAddress;
-            }
+            this.IsBusinessOrder = isBusinessOrder;
             this.Phone = phone;
             this.CompanyRegistrationNo = companyRegistrationNo;
             this.VatNo = vatNo;
@@ -135,11 +137,32 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
+        /// The billing or invoice address
+        /// </summary>
+        /// <value>The billing or invoice address</value>
+        [DataMember(Name="BillingAddress", EmitDefaultValue=false)]
+        public ChannelAddressRequest BillingAddress { get; set; }
+
+        /// <summary>
+        /// The shipping address
+        /// </summary>
+        /// <value>The shipping address</value>
+        [DataMember(Name="ShippingAddress", EmitDefaultValue=false)]
+        public ChannelAddressRequest ShippingAddress { get; set; }
+
+        /// <summary>
         /// The unique order reference used by the Channel
         /// </summary>
         /// <value>The unique order reference used by the Channel</value>
         [DataMember(Name="ChannelOrderNo", EmitDefaultValue=false)]
         public string ChannelOrderNo { get; set; }
+
+        /// <summary>
+        /// Optional. Is a business order (default value is false).  If not provided the VAT Number will be checked. If a VAT Number is found, IsBusinessOrder will be set to true.  No VAT will be calculated when set to true.
+        /// </summary>
+        /// <value>Optional. Is a business order (default value is false).  If not provided the VAT Number will be checked. If a VAT Number is found, IsBusinessOrder will be set to true.  No VAT will be calculated when set to true.</value>
+        [DataMember(Name="IsBusinessOrder", EmitDefaultValue=false)]
+        public bool? IsBusinessOrder { get; set; }
 
         /// <summary>
         /// The order lines
@@ -212,20 +235,6 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public string ChannelCustomerNo { get; set; }
 
         /// <summary>
-        /// The billing or invoice address
-        /// </summary>
-        /// <value>The billing or invoice address</value>
-        [DataMember(Name="BillingAddress", EmitDefaultValue=false)]
-        public Address BillingAddress { get; set; }
-
-        /// <summary>
-        /// The shipping address
-        /// </summary>
-        /// <value>The shipping address</value>
-        [DataMember(Name="ShippingAddress", EmitDefaultValue=false)]
-        public Address ShippingAddress { get; set; }
-
-        /// <summary>
         /// Extra data on the order
         /// </summary>
         /// <value>Extra data on the order</value>
@@ -240,7 +249,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ChannelOrderRequest {\n");
+            sb.Append("  BillingAddress: ").Append(BillingAddress).Append("\n");
+            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("  ChannelOrderNo: ").Append(ChannelOrderNo).Append("\n");
+            sb.Append("  IsBusinessOrder: ").Append(IsBusinessOrder).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -251,8 +263,6 @@ namespace ChannelEngine.Channel.ApiClient.Model
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  OrderDate: ").Append(OrderDate).Append("\n");
             sb.Append("  ChannelCustomerNo: ").Append(ChannelCustomerNo).Append("\n");
-            sb.Append("  BillingAddress: ").Append(BillingAddress).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -289,9 +299,24 @@ namespace ChannelEngine.Channel.ApiClient.Model
 
             return 
                 (
+                    this.BillingAddress == input.BillingAddress ||
+                    (this.BillingAddress != null &&
+                    this.BillingAddress.Equals(input.BillingAddress))
+                ) && 
+                (
+                    this.ShippingAddress == input.ShippingAddress ||
+                    (this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(input.ShippingAddress))
+                ) && 
+                (
                     this.ChannelOrderNo == input.ChannelOrderNo ||
                     (this.ChannelOrderNo != null &&
                     this.ChannelOrderNo.Equals(input.ChannelOrderNo))
+                ) && 
+                (
+                    this.IsBusinessOrder == input.IsBusinessOrder ||
+                    (this.IsBusinessOrder != null &&
+                    this.IsBusinessOrder.Equals(input.IsBusinessOrder))
                 ) && 
                 (
                     this.Lines == input.Lines ||
@@ -344,16 +369,6 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     this.ChannelCustomerNo.Equals(input.ChannelCustomerNo))
                 ) && 
                 (
-                    this.BillingAddress == input.BillingAddress ||
-                    (this.BillingAddress != null &&
-                    this.BillingAddress.Equals(input.BillingAddress))
-                ) && 
-                (
-                    this.ShippingAddress == input.ShippingAddress ||
-                    (this.ShippingAddress != null &&
-                    this.ShippingAddress.Equals(input.ShippingAddress))
-                ) && 
-                (
                     this.ExtraData == input.ExtraData ||
                     this.ExtraData != null &&
                     this.ExtraData.SequenceEqual(input.ExtraData)
@@ -369,8 +384,14 @@ namespace ChannelEngine.Channel.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BillingAddress != null)
+                    hashCode = hashCode * 59 + this.BillingAddress.GetHashCode();
+                if (this.ShippingAddress != null)
+                    hashCode = hashCode * 59 + this.ShippingAddress.GetHashCode();
                 if (this.ChannelOrderNo != null)
                     hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
+                if (this.IsBusinessOrder != null)
+                    hashCode = hashCode * 59 + this.IsBusinessOrder.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.Phone != null)
@@ -391,10 +412,6 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     hashCode = hashCode * 59 + this.OrderDate.GetHashCode();
                 if (this.ChannelCustomerNo != null)
                     hashCode = hashCode * 59 + this.ChannelCustomerNo.GetHashCode();
-                if (this.BillingAddress != null)
-                    hashCode = hashCode * 59 + this.BillingAddress.GetHashCode();
-                if (this.ShippingAddress != null)
-                    hashCode = hashCode * 59 + this.ShippingAddress.GetHashCode();
                 if (this.ExtraData != null)
                     hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 return hashCode;

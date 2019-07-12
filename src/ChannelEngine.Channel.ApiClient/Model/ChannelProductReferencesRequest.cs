@@ -25,17 +25,17 @@ using SwaggerDateConverter = ChannelEngine.Channel.ApiClient.Client.SwaggerDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// ChannelReferencesRequest
+    /// ChannelProductReferencesRequest
     /// </summary>
     [DataContract]
-    public partial class ChannelReferencesRequest :  IEquatable<ChannelReferencesRequest>, IValidatableObject
+    public partial class ChannelProductReferencesRequest :  IEquatable<ChannelProductReferencesRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChannelReferencesRequest" /> class.
+        /// Initializes a new instance of the <see cref="ChannelProductReferencesRequest" /> class.
         /// </summary>
         /// <param name="id">The unique ChannelEngine product ID..</param>
         /// <param name="channelProductNo">The unique product reference used by the Channel.</param>
-        public ChannelReferencesRequest(int? id = default(int?), string channelProductNo = default(string))
+        public ChannelProductReferencesRequest(int? id = default(int?), string channelProductNo = default(string))
         {
             this.Id = id;
             this.ChannelProductNo = channelProductNo;
@@ -62,7 +62,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChannelReferencesRequest {\n");
+            sb.Append("class ChannelProductReferencesRequest {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
             sb.Append("}\n");
@@ -85,15 +85,15 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChannelReferencesRequest);
+            return this.Equals(input as ChannelProductReferencesRequest);
         }
 
         /// <summary>
-        /// Returns true if ChannelReferencesRequest instances are equal
+        /// Returns true if ChannelProductReferencesRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChannelReferencesRequest to be compared</param>
+        /// <param name="input">Instance of ChannelProductReferencesRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelReferencesRequest input)
+        public bool Equals(ChannelProductReferencesRequest input)
         {
             if (input == null)
                 return false;

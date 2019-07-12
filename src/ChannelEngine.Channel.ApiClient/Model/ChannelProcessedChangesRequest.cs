@@ -36,7 +36,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="created">A collection of pairs of merchant and channel references  of the products which are successfully created. The channel references  are saved such that in subsequent calls these can be used instead of the   merchant references..</param>
         /// <param name="updated">The channel references of the products which are successfully updated..</param>
         /// <param name="removed">The channel references of the products which are successfully removed..</param>
-        public ChannelProcessedChangesRequest(List<ChannelReferencesRequest> created = default(List<ChannelReferencesRequest>), List<string> updated = default(List<string>), List<string> removed = default(List<string>))
+        public ChannelProcessedChangesRequest(List<ChannelProductReferencesRequest> created = default(List<ChannelProductReferencesRequest>), List<string> updated = default(List<string>), List<string> removed = default(List<string>))
         {
             this.Created = created;
             this.Updated = updated;
@@ -48,7 +48,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// </summary>
         /// <value>A collection of pairs of merchant and channel references  of the products which are successfully created. The channel references  are saved such that in subsequent calls these can be used instead of the   merchant references.</value>
         [DataMember(Name="Created", EmitDefaultValue=false)]
-        public List<ChannelReferencesRequest> Created { get; set; }
+        public List<ChannelProductReferencesRequest> Created { get; set; }
 
         /// <summary>
         /// The channel references of the products which are successfully updated.

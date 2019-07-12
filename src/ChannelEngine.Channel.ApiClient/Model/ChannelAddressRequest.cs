@@ -25,10 +25,10 @@ using SwaggerDateConverter = ChannelEngine.Channel.ApiClient.Client.SwaggerDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// Address
+    /// ChannelAddressRequest
     /// </summary>
     [DataContract]
-    public partial class Address :  IEquatable<Address>, IValidatableObject
+    public partial class ChannelAddressRequest :  IEquatable<ChannelAddressRequest>, IValidatableObject
     {
         /// <summary>
         /// Optional. The customer&#39;s gender
@@ -64,7 +64,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         [DataMember(Name="Gender", EmitDefaultValue=false)]
         public GenderEnum? Gender { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Address" /> class.
+        /// Initializes a new instance of the <see cref="ChannelAddressRequest" /> class.
         /// </summary>
         /// <param name="gender">Optional. The customer&#39;s gender.</param>
         /// <param name="companyName">Optional. Company addressed too..</param>
@@ -78,7 +78,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="region">Optional. State/province/region.</param>
         /// <param name="countryIso">For example: NL, BE, FR.</param>
         /// <param name="original">Optional. The address as a single string: use in case the address lines are entered  as single lines and later parsed into street, house number and house number addition..</param>
-        public Address(GenderEnum? gender = default(GenderEnum?), string companyName = default(string), string firstName = default(string), string lastName = default(string), string streetName = default(string), string houseNr = default(string), string houseNrAddition = default(string), string zipCode = default(string), string city = default(string), string region = default(string), string countryIso = default(string), string original = default(string))
+        public ChannelAddressRequest(GenderEnum? gender = default(GenderEnum?), string companyName = default(string), string firstName = default(string), string lastName = default(string), string streetName = default(string), string houseNr = default(string), string houseNrAddition = default(string), string zipCode = default(string), string city = default(string), string region = default(string), string countryIso = default(string), string original = default(string))
         {
             this.Gender = gender;
             this.CompanyName = companyName;
@@ -179,7 +179,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Address {\n");
+            sb.Append("class ChannelAddressRequest {\n");
             sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
@@ -212,15 +212,15 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Address);
+            return this.Equals(input as ChannelAddressRequest);
         }
 
         /// <summary>
-        /// Returns true if Address instances are equal
+        /// Returns true if ChannelAddressRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of Address to be compared</param>
+        /// <param name="input">Instance of ChannelAddressRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Address input)
+        public bool Equals(ChannelAddressRequest input)
         {
             if (input == null)
                 return false;
