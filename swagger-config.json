@@ -4,6 +4,7 @@
 	"packageName": "ChannelEngine.Channel.ApiClient",
 	"gitUserId": "channelengine",
 	"gitRepoId": "channel-api-client-csharp",
-	"targetFramework": "v4.5",
+	"targetFramework": "v5.0",
+	"netCoreProjectFile": true,
 	"packageGuid": "{1F6F840E-7E90-44B2-A72D-24E80A7552FA}"
 }

@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Channel.ApiClient.Client;
 using ChannelEngine.Channel.ApiClient.Model;
 
@@ -189,7 +189,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public ApiResponse< CollectionOfChannelCancellationResponse > CancellationIndexWithHttpInfo (DateTime? createdSince = null)
         {
 
-            var localVarPath = "/v2/cancellations";
+            var localVarPath = "./v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -234,7 +234,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfChannelCancellationResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfChannelCancellationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfChannelCancellationResponse)));
         }
 
@@ -260,7 +260,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelCancellationResponse>> CancellationIndexAsyncWithHttpInfo (DateTime? createdSince = null)
         {
 
-            var localVarPath = "/v2/cancellations";
+            var localVarPath = "./v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -305,7 +305,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfChannelCancellationResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfChannelCancellationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfChannelCancellationResponse)));
         }
 

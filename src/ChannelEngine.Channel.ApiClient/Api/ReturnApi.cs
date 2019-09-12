@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Channel.ApiClient.Client;
 using ChannelEngine.Channel.ApiClient.Model;
 
@@ -254,7 +254,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnDeclareForChannel");
 
-            var localVarPath = "/v2/returns/channel";
+            var localVarPath = "./v2/returns/channel";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -310,7 +310,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -339,7 +339,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnDeclareForChannel");
 
-            var localVarPath = "/v2/returns/channel";
+            var localVarPath = "./v2/returns/channel";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -395,7 +395,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -430,7 +430,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public ApiResponse< CollectionOfChannelReturnResponse > ReturnGetDeclaredByMerchantWithHttpInfo (DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null)
         {
 
-            var localVarPath = "/v2/returns/channel";
+            var localVarPath = "./v2/returns/channel";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -480,7 +480,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfChannelReturnResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfChannelReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfChannelReturnResponse)));
         }
 
@@ -516,7 +516,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantAsyncWithHttpInfo (DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null)
         {
 
-            var localVarPath = "/v2/returns/channel";
+            var localVarPath = "./v2/returns/channel";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -566,7 +566,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfChannelReturnResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfChannelReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfChannelReturnResponse)));
         }
 
