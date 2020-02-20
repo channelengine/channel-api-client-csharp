@@ -40,6 +40,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="shippingAddress">The shipping address (required).</param>
         /// <param name="channelOrderNo">The unique order reference used by the Channel (required).</param>
         /// <param name="isBusinessOrder">Optional. Is a business order (default value is false).  If not provided the VAT Number will be checked. If a VAT Number is found, IsBusinessOrder will be set to true.  No VAT will be calculated when set to true..</param>
+        /// <param name="keyIsMerchantProductNo">Optional. Is the MPN used as key for the product (default value is false)..</param>
         /// <param name="lines">The order lines (required).</param>
         /// <param name="phone">The customer&#39;s telephone number.</param>
         /// <param name="email">The customer&#39;s email (required).</param>
@@ -48,10 +49,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="paymentMethod">The payment method used on the order.</param>
         /// <param name="shippingCostsInclVat">The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="currencyCode">The currency code for the amounts of the order (required).</param>
-        /// <param name="orderDate">The date the order was done (required).</param>
+        /// <param name="orderDate">The date the order was created at the channel (required).</param>
         /// <param name="channelCustomerNo">The unique customer reference used by the channel.</param>
         /// <param name="extraData">Extra data on the order.</param>
-        public ChannelOrderRequest(ChannelAddressRequest billingAddress = default(ChannelAddressRequest), ChannelAddressRequest shippingAddress = default(ChannelAddressRequest), string channelOrderNo = default(string), bool? isBusinessOrder = default(bool?), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
+        public ChannelOrderRequest(ChannelAddressRequest billingAddress = default(ChannelAddressRequest), ChannelAddressRequest shippingAddress = default(ChannelAddressRequest), string channelOrderNo = default(string), bool? isBusinessOrder = default(bool?), bool? keyIsMerchantProductNo = default(bool?), List<ChannelOrderLineRequest> lines = default(List<ChannelOrderLineRequest>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "billingAddress" is required (not null)
             if (billingAddress == null)
@@ -126,6 +127,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
                 this.OrderDate = orderDate;
             }
             this.IsBusinessOrder = isBusinessOrder;
+            this.KeyIsMerchantProductNo = keyIsMerchantProductNo;
             this.Phone = phone;
             this.CompanyRegistrationNo = companyRegistrationNo;
             this.VatNo = vatNo;
@@ -161,6 +163,13 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <value>Optional. Is a business order (default value is false).  If not provided the VAT Number will be checked. If a VAT Number is found, IsBusinessOrder will be set to true.  No VAT will be calculated when set to true.</value>
         [DataMember(Name="IsBusinessOrder", EmitDefaultValue=false)]
         public bool? IsBusinessOrder { get; set; }
+
+        /// <summary>
+        /// Optional. Is the MPN used as key for the product (default value is false).
+        /// </summary>
+        /// <value>Optional. Is the MPN used as key for the product (default value is false).</value>
+        [DataMember(Name="KeyIsMerchantProductNo", EmitDefaultValue=false)]
+        public bool? KeyIsMerchantProductNo { get; set; }
 
         /// <summary>
         /// The order lines
@@ -219,9 +228,9 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public string CurrencyCode { get; set; }
 
         /// <summary>
-        /// The date the order was done
+        /// The date the order was created at the channel
         /// </summary>
-        /// <value>The date the order was done</value>
+        /// <value>The date the order was created at the channel</value>
         [DataMember(Name="OrderDate", EmitDefaultValue=false)]
         public DateTime? OrderDate { get; set; }
 
@@ -251,6 +260,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("  ChannelOrderNo: ").Append(ChannelOrderNo).Append("\n");
             sb.Append("  IsBusinessOrder: ").Append(IsBusinessOrder).Append("\n");
+            sb.Append("  KeyIsMerchantProductNo: ").Append(KeyIsMerchantProductNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -315,6 +325,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     this.IsBusinessOrder == input.IsBusinessOrder ||
                     (this.IsBusinessOrder != null &&
                     this.IsBusinessOrder.Equals(input.IsBusinessOrder))
+                ) && 
+                (
+                    this.KeyIsMerchantProductNo == input.KeyIsMerchantProductNo ||
+                    (this.KeyIsMerchantProductNo != null &&
+                    this.KeyIsMerchantProductNo.Equals(input.KeyIsMerchantProductNo))
                 ) && 
                 (
                     this.Lines == input.Lines ||
@@ -390,6 +405,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.IsBusinessOrder != null)
                     hashCode = hashCode * 59 + this.IsBusinessOrder.GetHashCode();
+                if (this.KeyIsMerchantProductNo != null)
+                    hashCode = hashCode * 59 + this.KeyIsMerchantProductNo.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.Phone != null)

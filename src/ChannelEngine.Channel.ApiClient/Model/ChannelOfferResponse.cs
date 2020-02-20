@@ -32,11 +32,13 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// Initializes a new instance of the <see cref="ChannelOfferResponse" /> class.
         /// </summary>
         /// <param name="channelProductNo">The unique product reference used by the Channel.</param>
+        /// <param name="merchantProductNo">merchantProductNo.</param>
         /// <param name="price">price.</param>
         /// <param name="stock">stock.</param>
-        public ChannelOfferResponse(string channelProductNo = default(string), decimal? price = default(decimal?), int? stock = default(int?))
+        public ChannelOfferResponse(string channelProductNo = default(string), string merchantProductNo = default(string), decimal? price = default(decimal?), int? stock = default(int?))
         {
             this.ChannelProductNo = channelProductNo;
+            this.MerchantProductNo = merchantProductNo;
             this.Price = price;
             this.Stock = stock;
         }
@@ -47,6 +49,12 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <value>The unique product reference used by the Channel</value>
         [DataMember(Name="ChannelProductNo", EmitDefaultValue=false)]
         public string ChannelProductNo { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantProductNo
+        /// </summary>
+        [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
+        public string MerchantProductNo { get; set; }
 
         /// <summary>
         /// Gets or Sets Price
@@ -69,6 +77,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             var sb = new StringBuilder();
             sb.Append("class ChannelOfferResponse {\n");
             sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
+            sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Stock: ").Append(Stock).Append("\n");
             sb.Append("}\n");
@@ -111,6 +120,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     this.ChannelProductNo.Equals(input.ChannelProductNo))
                 ) && 
                 (
+                    this.MerchantProductNo == input.MerchantProductNo ||
+                    (this.MerchantProductNo != null &&
+                    this.MerchantProductNo.Equals(input.MerchantProductNo))
+                ) && 
+                (
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
@@ -133,6 +147,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
                 int hashCode = 41;
                 if (this.ChannelProductNo != null)
                     hashCode = hashCode * 59 + this.ChannelProductNo.GetHashCode();
+                if (this.MerchantProductNo != null)
+                    hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.Stock != null)

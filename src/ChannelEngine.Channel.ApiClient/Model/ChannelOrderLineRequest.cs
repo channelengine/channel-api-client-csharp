@@ -99,14 +99,15 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelOrderLineRequest" /> class.
         /// </summary>
-        /// <param name="channelProductNo">The unique order reference used by the channel (required).</param>
+        /// <param name="channelProductNo">The unique product reference used by the channel (required).</param>
+        /// <param name="merchantProductNo">The unique product reference used by the merchant.</param>
         /// <param name="quantity">The number of items of the product (required).</param>
         /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine.</param>
         /// <param name="unitPriceInclVat">The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="feeRate">A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="condition">The condition of the product, this can be used to indicate that a product is a second-hand product.</param>
-        public ChannelOrderLineRequest(string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), decimal? unitPriceInclVat = default(decimal?), decimal? feeFixed = default(decimal?), decimal? feeRate = default(decimal?), ConditionEnum? condition = default(ConditionEnum?))
+        public ChannelOrderLineRequest(string channelProductNo = default(string), string merchantProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), decimal? unitPriceInclVat = default(decimal?), decimal? feeFixed = default(decimal?), decimal? feeRate = default(decimal?), ConditionEnum? condition = default(ConditionEnum?))
         {
             // to ensure "channelProductNo" is required (not null)
             if (channelProductNo == null)
@@ -135,6 +136,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             {
                 this.UnitPriceInclVat = unitPriceInclVat;
             }
+            this.MerchantProductNo = merchantProductNo;
             this.CancellationRequestedQuantity = cancellationRequestedQuantity;
             this.FeeFixed = feeFixed;
             this.FeeRate = feeRate;
@@ -142,11 +144,18 @@ namespace ChannelEngine.Channel.ApiClient.Model
         }
         
         /// <summary>
-        /// The unique order reference used by the channel
+        /// The unique product reference used by the channel
         /// </summary>
-        /// <value>The unique order reference used by the channel</value>
+        /// <value>The unique product reference used by the channel</value>
         [DataMember(Name="ChannelProductNo", EmitDefaultValue=false)]
         public string ChannelProductNo { get; set; }
+
+        /// <summary>
+        /// The unique product reference used by the merchant
+        /// </summary>
+        /// <value>The unique product reference used by the merchant</value>
+        [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
+        public string MerchantProductNo { get; set; }
 
         /// <summary>
         /// The number of items of the product
@@ -193,6 +202,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             var sb = new StringBuilder();
             sb.Append("class ChannelOrderLineRequest {\n");
             sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
+            sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  CancellationRequestedQuantity: ").Append(CancellationRequestedQuantity).Append("\n");
             sb.Append("  UnitPriceInclVat: ").Append(UnitPriceInclVat).Append("\n");
@@ -239,6 +249,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
                     this.ChannelProductNo.Equals(input.ChannelProductNo))
                 ) && 
                 (
+                    this.MerchantProductNo == input.MerchantProductNo ||
+                    (this.MerchantProductNo != null &&
+                    this.MerchantProductNo.Equals(input.MerchantProductNo))
+                ) && 
+                (
                     this.Quantity == input.Quantity ||
                     (this.Quantity != null &&
                     this.Quantity.Equals(input.Quantity))
@@ -281,6 +296,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
                 int hashCode = 41;
                 if (this.ChannelProductNo != null)
                     hashCode = hashCode * 59 + this.ChannelProductNo.GetHashCode();
+                if (this.MerchantProductNo != null)
+                    hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
                 if (this.Quantity != null)
                     hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.CancellationRequestedQuantity != null)

@@ -31,9 +31,14 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfChannelShipmentResponse</returns>
-        CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince = null);
+        CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null);
 
         /// <summary>
         /// Get Shipments
@@ -42,9 +47,14 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelShipmentResponse</returns>
-        ApiResponse<CollectionOfChannelShipmentResponse> ShipmentIndexWithHttpInfo (DateTime? createdSince = null);
+        ApiResponse<CollectionOfChannelShipmentResponse> ShipmentIndexWithHttpInfo (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,9 +64,14 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfChannelShipmentResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince = null);
+        System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null);
 
         /// <summary>
         /// Get Shipments
@@ -65,9 +80,14 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Gets all shipments created since the supplied date.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelShipmentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince = null);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null);
         #endregion Asynchronous Operations
     }
 
@@ -172,11 +192,16 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfChannelShipmentResponse</returns>
-        public CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince = null)
+        public CollectionOfChannelShipmentResponse ShipmentIndex (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null)
         {
-             ApiResponse<CollectionOfChannelShipmentResponse> localVarResponse = ShipmentIndexWithHttpInfo(createdSince);
+             ApiResponse<CollectionOfChannelShipmentResponse> localVarResponse = ShipmentIndexWithHttpInfo(createdSince, statuses, fromDate, toDate, channelOrderNos, page);
              return localVarResponse.Data;
         }
 
@@ -184,9 +209,14 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelShipmentResponse</returns>
-        public ApiResponse< CollectionOfChannelShipmentResponse > ShipmentIndexWithHttpInfo (DateTime? createdSince = null)
+        public ApiResponse< CollectionOfChannelShipmentResponse > ShipmentIndexWithHttpInfo (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null)
         {
 
             var localVarPath = "./v2/shipments";
@@ -213,6 +243,11 @@ namespace ChannelEngine.Channel.ApiClient.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
+            if (statuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "statuses", statuses)); // query parameter
+            if (fromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromDate", fromDate)); // query parameter
+            if (toDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toDate", toDate)); // query parameter
+            if (channelOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "channelOrderNos", channelOrderNos)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
@@ -242,11 +277,16 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfChannelShipmentResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince = null)
+        public async System.Threading.Tasks.Task<CollectionOfChannelShipmentResponse> ShipmentIndexAsync (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null)
         {
-             ApiResponse<CollectionOfChannelShipmentResponse> localVarResponse = await ShipmentIndexAsyncWithHttpInfo(createdSince);
+             ApiResponse<CollectionOfChannelShipmentResponse> localVarResponse = await ShipmentIndexAsyncWithHttpInfo(createdSince, statuses, fromDate, toDate, channelOrderNos, page);
              return localVarResponse.Data;
 
         }
@@ -255,9 +295,14 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Get Shipments Gets all shipments created since the supplied date.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Shipment status(es) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="channelOrderNos">Filter on the unique references (ids) as used by the channel. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelShipmentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelShipmentResponse>> ShipmentIndexAsyncWithHttpInfo (DateTime? createdSince = null, List<string> statuses = null, DateTime? fromDate = null, DateTime? toDate = null, List<string> channelOrderNos = null, int? page = null)
         {
 
             var localVarPath = "./v2/shipments";
@@ -284,6 +329,11 @@ namespace ChannelEngine.Channel.ApiClient.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
+            if (statuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "statuses", statuses)); // query parameter
+            if (fromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromDate", fromDate)); // query parameter
+            if (toDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toDate", toDate)); // query parameter
+            if (channelOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "channelOrderNos", channelOrderNos)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))

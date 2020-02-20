@@ -49,23 +49,25 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Acknowledge Product Offer Changes
         /// </summary>
         /// <remarks>
-        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>ApiResponse</returns>
-        ApiResponse ProductAcknowledgeOfferChanges (List<string> changes);
+        ApiResponse ProductAcknowledgeOfferChanges (List<string> changes, bool? keyIsMpn = null);
 
         /// <summary>
         /// Acknowledge Product Offer Changes
         /// </summary>
         /// <remarks>
-        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
-        ApiResponse<ApiResponse> ProductAcknowledgeOfferChangesWithHttpInfo (List<string> changes);
+        ApiResponse<ApiResponse> ProductAcknowledgeOfferChangesWithHttpInfo (List<string> changes, bool? keyIsMpn = null);
         /// <summary>
         /// Get Product Data Changes
         /// </summary>
@@ -133,23 +135,25 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// Acknowledge Product Offer Changes
         /// </summary>
         /// <remarks>
-        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse> ProductAcknowledgeOfferChangesAsync (List<string> changes);
+        System.Threading.Tasks.Task<ApiResponse> ProductAcknowledgeOfferChangesAsync (List<string> changes, bool? keyIsMpn = null);
 
         /// <summary>
         /// Acknowledge Product Offer Changes
         /// </summary>
         /// <remarks>
-        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </remarks>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ProductAcknowledgeOfferChangesAsyncWithHttpInfo (List<string> changes);
+        System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ProductAcknowledgeOfferChangesAsyncWithHttpInfo (List<string> changes, bool? keyIsMpn = null);
         /// <summary>
         /// Get Product Data Changes
         /// </summary>
@@ -460,24 +464,26 @@ namespace ChannelEngine.Channel.ApiClient.Api
         }
 
         /// <summary>
-        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>ApiResponse</returns>
-        public ApiResponse ProductAcknowledgeOfferChanges (List<string> changes)
+        public ApiResponse ProductAcknowledgeOfferChanges (List<string> changes, bool? keyIsMpn = null)
         {
-             ApiResponse<ApiResponse> localVarResponse = ProductAcknowledgeOfferChangesWithHttpInfo(changes);
+             ApiResponse<ApiResponse> localVarResponse = ProductAcknowledgeOfferChangesWithHttpInfo(changes, keyIsMpn);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
-        public ApiResponse< ApiResponse > ProductAcknowledgeOfferChangesWithHttpInfo (List<string> changes)
+        public ApiResponse< ApiResponse > ProductAcknowledgeOfferChangesWithHttpInfo (List<string> changes, bool? keyIsMpn = null)
         {
             // verify the required parameter 'changes' is set
             if (changes == null)
@@ -510,6 +516,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (keyIsMpn != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "keyIsMpn", keyIsMpn)); // query parameter
             if (changes != null && changes.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(changes); // http body (model) parameter
@@ -544,25 +551,27 @@ namespace ChannelEngine.Channel.ApiClient.Api
         }
 
         /// <summary>
-        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse> ProductAcknowledgeOfferChangesAsync (List<string> changes)
+        public async System.Threading.Tasks.Task<ApiResponse> ProductAcknowledgeOfferChangesAsync (List<string> changes, bool? keyIsMpn = null)
         {
-             ApiResponse<ApiResponse> localVarResponse = await ProductAcknowledgeOfferChangesAsyncWithHttpInfo(changes);
+             ApiResponse<ApiResponse> localVarResponse = await ProductAcknowledgeOfferChangesAsyncWithHttpInfo(changes, keyIsMpn);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelReturnNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.
+        /// Acknowledge Product Offer Changes After a call to GET &#39;v2/products/offers&#39; this endpoint should be called with the  ChannelProductNo of the products that are successfully updated.  Please see &#39;v2/products/data&#39; and &#39;v2/products/data&#39; for documentation.  In advanced cases, the MerchantProductNo is used for this.   In that case, bool keyIsMpn should be true.
         /// </summary>
         /// <exception cref="ChannelEngine.Channel.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changes">The channel references of the updated products</param>
+        /// <param name="keyIsMpn">If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ProductAcknowledgeOfferChangesAsyncWithHttpInfo (List<string> changes)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ProductAcknowledgeOfferChangesAsyncWithHttpInfo (List<string> changes, bool? keyIsMpn = null)
         {
             // verify the required parameter 'changes' is set
             if (changes == null)
@@ -595,6 +604,7 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (keyIsMpn != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "keyIsMpn", keyIsMpn)); // query parameter
             if (changes != null && changes.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(changes); // http body (model) parameter
