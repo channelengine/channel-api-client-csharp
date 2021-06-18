@@ -26,24 +26,36 @@ using OpenAPIDateConverter = ChannelEngine.Channel.ApiClient.Client.OpenAPIDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// Defines ShipmentStatus
+    /// Defines DataChangesProductType
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum ShipmentStatus
+    public enum DataChangesProductType
     {
         /// <summary>
-        /// Enum PENDING for value: PENDING
+        /// Enum SINGLE for value: SINGLE
         /// </summary>
-        [EnumMember(Value = "PENDING")]
-        PENDING = 1,
+        [EnumMember(Value = "SINGLE")]
+        SINGLE = 1,
 
         /// <summary>
-        /// Enum CLOSED for value: CLOSED
+        /// Enum PARENT for value: PARENT
         /// </summary>
-        [EnumMember(Value = "CLOSED")]
-        CLOSED = 2
+        [EnumMember(Value = "PARENT")]
+        PARENT = 2,
+
+        /// <summary>
+        /// Enum CHILD for value: CHILD
+        /// </summary>
+        [EnumMember(Value = "CHILD")]
+        CHILD = 3,
+
+        /// <summary>
+        /// Enum GRANDPARENT for value: GRANDPARENT
+        /// </summary>
+        [EnumMember(Value = "GRANDPARENT")]
+        GRANDPARENT = 4
 
     }
 }

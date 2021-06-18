@@ -26,24 +26,30 @@ using OpenAPIDateConverter = ChannelEngine.Channel.ApiClient.Client.OpenAPIDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// Defines ShipmentStatus
+    /// Defines ShipmentLineStatus
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum ShipmentStatus
+    public enum ShipmentLineStatus
     {
         /// <summary>
-        /// Enum PENDING for value: PENDING
+        /// Enum SHIPPED for value: SHIPPED
         /// </summary>
-        [EnumMember(Value = "PENDING")]
-        PENDING = 1,
+        [EnumMember(Value = "SHIPPED")]
+        SHIPPED = 1,
 
         /// <summary>
-        /// Enum CLOSED for value: CLOSED
+        /// Enum INBACKORDER for value: IN_BACKORDER
         /// </summary>
-        [EnumMember(Value = "CLOSED")]
-        CLOSED = 2
+        [EnumMember(Value = "IN_BACKORDER")]
+        IN_BACKORDER = 2,
+
+        /// <summary>
+        /// Enum MANCO for value: MANCO
+        /// </summary>
+        [EnumMember(Value = "MANCO")]
+        MANCO = 3
 
     }
 }
