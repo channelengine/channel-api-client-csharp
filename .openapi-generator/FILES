@@ -57,6 +57,5 @@ src/ChannelEngine.Channel.ApiClient/Model/OrderStatusView.cs
 src/ChannelEngine.Channel.ApiClient/Model/ReturnReason.cs
 src/ChannelEngine.Channel.ApiClient/Model/ReturnStatus.cs
 src/ChannelEngine.Channel.ApiClient/Model/ShipmentLineStatus.cs
-src/ChannelEngine.Channel.ApiClient/Model/ShipmentStatus.cs
 src/ChannelEngine.Channel.ApiClient/Model/SingleOfChannelProductChangesResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/VatRateType.cs
