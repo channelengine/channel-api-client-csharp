@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1f6f840e-7e90-44b2-a72d-24e80a7552fa": {
+      "ProjectGuid": "1f6f840e-7e90-44b2-a72d-24e80a7552fa",
+      "DisplayName": "ChannelEngine.Channel.ApiClient",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
