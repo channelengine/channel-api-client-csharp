@@ -26,41 +26,41 @@ using OpenAPIDateConverter = ChannelEngine.Channel.ApiClient.Client.OpenAPIDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// ChannelProductReferencesRequest
+    /// Operation
     /// </summary>
-    [DataContract(Name = "ChannelProductReferencesRequest")]
-    public partial class ChannelProductReferencesRequest : IEquatable<ChannelProductReferencesRequest>, IValidatableObject
+    [DataContract(Name = "Operation")]
+    public partial class Operation : IEquatable<Operation>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChannelProductReferencesRequest" /> class.
+        /// Initializes a new instance of the <see cref="Operation" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ChannelProductReferencesRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ChannelProductReferencesRequest" /> class.
-        /// </summary>
-        /// <param name="id">The unique ChannelEngine product ID..</param>
-        /// <param name="channelProductNo">The unique product reference used by the Channel. (required).</param>
-        public ChannelProductReferencesRequest(int id = default(int), string channelProductNo = default(string))
+        /// <param name="op">op.</param>
+        /// <param name="value">value.</param>
+        /// <param name="path">path.</param>
+        public Operation(string op = default(string), Object value = default(Object), string path = default(string))
         {
-            // to ensure "channelProductNo" is required (not null)
-            this.ChannelProductNo = channelProductNo ?? throw new ArgumentNullException("channelProductNo is a required property for ChannelProductReferencesRequest and cannot be null");
-            this.Id = id;
+            this.Op = op;
+            this.Value = value;
+            this.Path = path;
         }
 
         /// <summary>
-        /// The unique ChannelEngine product ID.
+        /// Gets or Sets Op
         /// </summary>
-        /// <value>The unique ChannelEngine product ID.</value>
-        [DataMember(Name = "Id", EmitDefaultValue = false)]
-        public int Id { get; set; }
+        [DataMember(Name = "op", EmitDefaultValue = false)]
+        public string Op { get; set; }
 
         /// <summary>
-        /// The unique product reference used by the Channel.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>The unique product reference used by the Channel.</value>
-        [DataMember(Name = "ChannelProductNo", IsRequired = true, EmitDefaultValue = false)]
-        public string ChannelProductNo { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public Object Value { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Path
+        /// </summary>
+        [DataMember(Name = "path", EmitDefaultValue = false)]
+        public string Path { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +69,10 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChannelProductReferencesRequest {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
+            sb.Append("class Operation {\n");
+            sb.Append("  Op: ").Append(Op).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,28 +93,34 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChannelProductReferencesRequest);
+            return this.Equals(input as Operation);
         }
 
         /// <summary>
-        /// Returns true if ChannelProductReferencesRequest instances are equal
+        /// Returns true if Operation instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChannelProductReferencesRequest to be compared</param>
+        /// <param name="input">Instance of Operation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelProductReferencesRequest input)
+        public bool Equals(Operation input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    this.Id.Equals(input.Id)
+                    this.Op == input.Op ||
+                    (this.Op != null &&
+                    this.Op.Equals(input.Op))
                 ) && 
                 (
-                    this.ChannelProductNo == input.ChannelProductNo ||
-                    (this.ChannelProductNo != null &&
-                    this.ChannelProductNo.Equals(input.ChannelProductNo))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.Path == input.Path ||
+                    (this.Path != null &&
+                    this.Path.Equals(input.Path))
                 );
         }
 
@@ -126,9 +133,12 @@ namespace ChannelEngine.Channel.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.ChannelProductNo != null)
-                    hashCode = hashCode * 59 + this.ChannelProductNo.GetHashCode();
+                if (this.Op != null)
+                    hashCode = hashCode * 59 + this.Op.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Path != null)
+                    hashCode = hashCode * 59 + this.Path.GetHashCode();
                 return hashCode;
             }
         }

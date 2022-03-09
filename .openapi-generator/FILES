@@ -53,6 +53,7 @@ src/ChannelEngine.Channel.ApiClient/Model/DataChangesProductType.cs
 src/ChannelEngine.Channel.ApiClient/Model/ExtraDataType.cs
 src/ChannelEngine.Channel.ApiClient/Model/Gender.cs
 src/ChannelEngine.Channel.ApiClient/Model/MancoReason.cs
+src/ChannelEngine.Channel.ApiClient/Model/Operation.cs
 src/ChannelEngine.Channel.ApiClient/Model/OrderStatusView.cs
 src/ChannelEngine.Channel.ApiClient/Model/ReturnReason.cs
 src/ChannelEngine.Channel.ApiClient/Model/ReturnStatus.cs
