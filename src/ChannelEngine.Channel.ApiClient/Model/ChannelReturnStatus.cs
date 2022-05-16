@@ -26,12 +26,12 @@ using OpenAPIDateConverter = ChannelEngine.Channel.ApiClient.Client.OpenAPIDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// Defines ReturnStatus
+    /// Defines ChannelReturnStatus
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum ReturnStatus
+    public enum ChannelReturnStatus
     {
         /// <summary>
         /// Enum INPROGRESS for value: IN_PROGRESS
@@ -43,13 +43,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// Enum RECEIVED for value: RECEIVED
         /// </summary>
         [EnumMember(Value = "RECEIVED")]
-        RECEIVED = 2,
-
-        /// <summary>
-        /// Enum CANCELLED for value: CANCELLED
-        /// </summary>
-        [EnumMember(Value = "CANCELLED")]
-        CANCELLED = 3
+        RECEIVED = 2
 
     }
 }

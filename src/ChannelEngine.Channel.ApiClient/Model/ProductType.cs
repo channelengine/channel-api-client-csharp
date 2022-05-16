@@ -26,48 +26,42 @@ using OpenAPIDateConverter = ChannelEngine.Channel.ApiClient.Client.OpenAPIDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// Defines MancoReason
+    /// Defines ProductType
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum MancoReason
+    public enum ProductType
     {
         /// <summary>
-        /// Enum NOTINSTOCK for value: NOT_IN_STOCK
+        /// Enum SINGLE for value: SINGLE
         /// </summary>
-        [EnumMember(Value = "NOT_IN_STOCK")]
-        NOT_IN_STOCK = 1,
+        [EnumMember(Value = "SINGLE")]
+        SINGLE = 1,
 
         /// <summary>
-        /// Enum DAMAGED for value: DAMAGED
+        /// Enum PARENT for value: PARENT
         /// </summary>
-        [EnumMember(Value = "DAMAGED")]
-        DAMAGED = 2,
+        [EnumMember(Value = "PARENT")]
+        PARENT = 2,
 
         /// <summary>
-        /// Enum INCOMPLETE for value: INCOMPLETE
+        /// Enum CHILD for value: CHILD
         /// </summary>
-        [EnumMember(Value = "INCOMPLETE")]
-        INCOMPLETE = 3,
+        [EnumMember(Value = "CHILD")]
+        CHILD = 3,
 
         /// <summary>
-        /// Enum CLIENTCANCELLED for value: CLIENT_CANCELLED
+        /// Enum GRANDPARENT for value: GRANDPARENT
         /// </summary>
-        [EnumMember(Value = "CLIENT_CANCELLED")]
-        CLIENT_CANCELLED = 4,
+        [EnumMember(Value = "GRANDPARENT")]
+        GRANDPARENT = 4,
 
         /// <summary>
-        /// Enum INVALIDADDRESS for value: INVALID_ADDRESS
+        /// Enum BUNDLE for value: BUNDLE
         /// </summary>
-        [EnumMember(Value = "INVALID_ADDRESS")]
-        INVALID_ADDRESS = 5,
-
-        /// <summary>
-        /// Enum OTHER for value: OTHER
-        /// </summary>
-        [EnumMember(Value = "OTHER")]
-        OTHER = 6
+        [EnumMember(Value = "BUNDLE")]
+        BUNDLE = 5
 
     }
 }

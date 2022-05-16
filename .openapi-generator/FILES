@@ -42,8 +42,10 @@ src/ChannelEngine.Channel.ApiClient/Model/ChannelReturnLineRequest.cs
 src/ChannelEngine.Channel.ApiClient/Model/ChannelReturnLineResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/ChannelReturnRequest.cs
 src/ChannelEngine.Channel.ApiClient/Model/ChannelReturnResponse.cs
+src/ChannelEngine.Channel.ApiClient/Model/ChannelReturnStatus.cs
 src/ChannelEngine.Channel.ApiClient/Model/ChannelShipmentLineResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/ChannelShipmentResponse.cs
+src/ChannelEngine.Channel.ApiClient/Model/CollectionChangesOfChannelProductChangesResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/CollectionOfChannelCancellationResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/CollectionOfChannelOfferResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/CollectionOfChannelReturnResponse.cs
@@ -55,8 +57,8 @@ src/ChannelEngine.Channel.ApiClient/Model/Gender.cs
 src/ChannelEngine.Channel.ApiClient/Model/MancoReason.cs
 src/ChannelEngine.Channel.ApiClient/Model/Operation.cs
 src/ChannelEngine.Channel.ApiClient/Model/OrderStatusView.cs
+src/ChannelEngine.Channel.ApiClient/Model/ProductType.cs
 src/ChannelEngine.Channel.ApiClient/Model/ReturnReason.cs
 src/ChannelEngine.Channel.ApiClient/Model/ReturnStatus.cs
 src/ChannelEngine.Channel.ApiClient/Model/ShipmentLineStatus.cs
-src/ChannelEngine.Channel.ApiClient/Model/SingleOfChannelProductChangesResponse.cs
 src/ChannelEngine.Channel.ApiClient/Model/VatRateType.cs

@@ -26,22 +26,30 @@ using OpenAPIDateConverter = ChannelEngine.Channel.ApiClient.Client.OpenAPIDateC
 namespace ChannelEngine.Channel.ApiClient.Model
 {
     /// <summary>
-    /// ApiResponse
+    /// CollectionChangesOfChannelProductChangesResponse
     /// </summary>
-    [DataContract(Name = "ApiResponse")]
-    public partial class ApiResponse : IEquatable<ApiResponse>, IValidatableObject
+    [DataContract(Name = "CollectionChangesOfChannelProductChangesResponse")]
+    public partial class CollectionChangesOfChannelProductChangesResponse : IEquatable<CollectionChangesOfChannelProductChangesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiResponse" /> class.
+        /// Initializes a new instance of the <see cref="CollectionChangesOfChannelProductChangesResponse" /> class.
         /// </summary>
+        /// <param name="content">content.</param>
+        /// <param name="toBeCreatedTotalCount">toBeCreatedTotalCount.</param>
+        /// <param name="toBeUpdatedTotalCount">toBeUpdatedTotalCount.</param>
+        /// <param name="toBeDeletedTotalCount">toBeDeletedTotalCount.</param>
         /// <param name="statusCode">statusCode.</param>
         /// <param name="requestId">requestId.</param>
         /// <param name="logId">logId.</param>
         /// <param name="success">success.</param>
         /// <param name="message">message.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public ApiResponse(int statusCode = default(int), string requestId = default(string), string logId = default(string), bool success = default(bool), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
+        public CollectionChangesOfChannelProductChangesResponse(ChannelProductChangesResponse content = default(ChannelProductChangesResponse), int toBeCreatedTotalCount = default(int), int toBeUpdatedTotalCount = default(int), int toBeDeletedTotalCount = default(int), int statusCode = default(int), string requestId = default(string), string logId = default(string), bool success = default(bool), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
         {
+            this.Content = content;
+            this.ToBeCreatedTotalCount = toBeCreatedTotalCount;
+            this.ToBeUpdatedTotalCount = toBeUpdatedTotalCount;
+            this.ToBeDeletedTotalCount = toBeDeletedTotalCount;
             this.StatusCode = statusCode;
             this.RequestId = requestId;
             this.LogId = logId;
@@ -49,6 +57,30 @@ namespace ChannelEngine.Channel.ApiClient.Model
             this.Message = message;
             this.ValidationErrors = validationErrors;
         }
+
+        /// <summary>
+        /// Gets or Sets Content
+        /// </summary>
+        [DataMember(Name = "Content", EmitDefaultValue = false)]
+        public ChannelProductChangesResponse Content { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ToBeCreatedTotalCount
+        /// </summary>
+        [DataMember(Name = "ToBeCreatedTotalCount", EmitDefaultValue = false)]
+        public int ToBeCreatedTotalCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ToBeUpdatedTotalCount
+        /// </summary>
+        [DataMember(Name = "ToBeUpdatedTotalCount", EmitDefaultValue = false)]
+        public int ToBeUpdatedTotalCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ToBeDeletedTotalCount
+        /// </summary>
+        [DataMember(Name = "ToBeDeletedTotalCount", EmitDefaultValue = false)]
+        public int ToBeDeletedTotalCount { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusCode
@@ -93,7 +125,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ApiResponse {\n");
+            sb.Append("class CollectionChangesOfChannelProductChangesResponse {\n");
+            sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("  ToBeCreatedTotalCount: ").Append(ToBeCreatedTotalCount).Append("\n");
+            sb.Append("  ToBeUpdatedTotalCount: ").Append(ToBeUpdatedTotalCount).Append("\n");
+            sb.Append("  ToBeDeletedTotalCount: ").Append(ToBeDeletedTotalCount).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  LogId: ").Append(LogId).Append("\n");
@@ -120,20 +156,37 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ApiResponse);
+            return this.Equals(input as CollectionChangesOfChannelProductChangesResponse);
         }
 
         /// <summary>
-        /// Returns true if ApiResponse instances are equal
+        /// Returns true if CollectionChangesOfChannelProductChangesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApiResponse to be compared</param>
+        /// <param name="input">Instance of CollectionChangesOfChannelProductChangesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApiResponse input)
+        public bool Equals(CollectionChangesOfChannelProductChangesResponse input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.Content == input.Content ||
+                    (this.Content != null &&
+                    this.Content.Equals(input.Content))
+                ) && 
+                (
+                    this.ToBeCreatedTotalCount == input.ToBeCreatedTotalCount ||
+                    this.ToBeCreatedTotalCount.Equals(input.ToBeCreatedTotalCount)
+                ) && 
+                (
+                    this.ToBeUpdatedTotalCount == input.ToBeUpdatedTotalCount ||
+                    this.ToBeUpdatedTotalCount.Equals(input.ToBeUpdatedTotalCount)
+                ) && 
+                (
+                    this.ToBeDeletedTotalCount == input.ToBeDeletedTotalCount ||
+                    this.ToBeDeletedTotalCount.Equals(input.ToBeDeletedTotalCount)
+                ) && 
                 (
                     this.StatusCode == input.StatusCode ||
                     this.StatusCode.Equals(input.StatusCode)
@@ -174,6 +227,11 @@ namespace ChannelEngine.Channel.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Content != null)
+                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                hashCode = hashCode * 59 + this.ToBeCreatedTotalCount.GetHashCode();
+                hashCode = hashCode * 59 + this.ToBeUpdatedTotalCount.GetHashCode();
+                hashCode = hashCode * 59 + this.ToBeDeletedTotalCount.GetHashCode();
                 hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.RequestId != null)
                     hashCode = hashCode * 59 + this.RequestId.GetHashCode();
