@@ -42,11 +42,13 @@ namespace ChannelEngine.Channel.ApiClient.Model
         /// <param name="channelProductNo">The unique product reference used by the Channel..</param>
         /// <param name="merchantProductNo">The unique product reference used by the Merchant..</param>
         /// <param name="quantity">Number of items of the product in this return. (required).</param>
-        public ChannelReturnLineRequest(string channelProductNo = default(string), string merchantProductNo = default(string), int quantity = default(int))
+        /// <param name="extraData">Extra data on the returnline. Each item must have an unqiue key.</param>
+        public ChannelReturnLineRequest(string channelProductNo = default(string), string merchantProductNo = default(string), int quantity = default(int), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             this.Quantity = quantity;
             this.ChannelProductNo = channelProductNo;
             this.MerchantProductNo = merchantProductNo;
+            this.ExtraData = extraData;
         }
 
         /// <summary>
@@ -71,6 +73,13 @@ namespace ChannelEngine.Channel.ApiClient.Model
         public int Quantity { get; set; }
 
         /// <summary>
+        /// Extra data on the returnline. Each item must have an unqiue key
+        /// </summary>
+        /// <value>Extra data on the returnline. Each item must have an unqiue key</value>
+        [DataMember(Name = "ExtraData", EmitDefaultValue = true)]
+        public Dictionary<string, string> ExtraData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +90,7 @@ namespace ChannelEngine.Channel.ApiClient.Model
             sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,6 +138,12 @@ namespace ChannelEngine.Channel.ApiClient.Model
                 (
                     this.Quantity == input.Quantity ||
                     this.Quantity.Equals(input.Quantity)
+                ) && 
+                (
+                    this.ExtraData == input.ExtraData ||
+                    this.ExtraData != null &&
+                    input.ExtraData != null &&
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 );
         }
 
@@ -145,6 +161,8 @@ namespace ChannelEngine.Channel.ApiClient.Model
                 if (this.MerchantProductNo != null)
                     hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
                 hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                if (this.ExtraData != null)
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 return hashCode;
             }
         }

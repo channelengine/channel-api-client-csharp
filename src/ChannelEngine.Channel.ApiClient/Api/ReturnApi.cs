@@ -58,9 +58,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfChannelReturnResponse</returns>
-        CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?));
+        CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?));
 
         /// <summary>
         /// Get Returns.
@@ -73,9 +74,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelReturnResponse</returns>
-        ApiResponse<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantWithHttpInfo(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?));
+        ApiResponse<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantWithHttpInfo(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?));
         #endregion Synchronous Operations
     }
 
@@ -119,10 +121,11 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CollectionOfChannelReturnResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Returns.
@@ -135,10 +138,11 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelReturnResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantWithHttpInfoAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantWithHttpInfoAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -390,11 +394,12 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfChannelReturnResponse</returns>
-        public CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?))
+        public CollectionOfChannelReturnResponse ReturnGetDeclaredByMerchant(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?))
         {
-            ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse> localVarResponse = ReturnGetDeclaredByMerchantWithHttpInfo(statuses, reasons, fromDate, toDate, page);
+            ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse> localVarResponse = ReturnGetDeclaredByMerchantWithHttpInfo(statuses, reasons, fromDate, toDate, isAcknowledged, page);
             return localVarResponse.Data;
         }
 
@@ -406,9 +411,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfChannelReturnResponse</returns>
-        public ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantWithHttpInfo(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?))
+        public ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantWithHttpInfo(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?))
         {
             ChannelEngine.Channel.ApiClient.Client.RequestOptions localVarRequestOptions = new ChannelEngine.Channel.ApiClient.Client.RequestOptions();
 
@@ -441,6 +447,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (toDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ChannelEngine.Channel.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (isAcknowledged != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ChannelEngine.Channel.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "isAcknowledged", isAcknowledged));
             }
             if (page != null)
             {
@@ -473,12 +483,13 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CollectionOfChannelReturnResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CollectionOfChannelReturnResponse> ReturnGetDeclaredByMerchantAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse> localVarResponse = await ReturnGetDeclaredByMerchantWithHttpInfoAsync(statuses, reasons, fromDate, toDate, page, cancellationToken).ConfigureAwait(false);
+            ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse> localVarResponse = await ReturnGetDeclaredByMerchantWithHttpInfoAsync(statuses, reasons, fromDate, toDate, isAcknowledged, page, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -490,10 +501,11 @@ namespace ChannelEngine.Channel.ApiClient.Api
         /// <param name="reasons">Return reason(s) to filter on. (optional)</param>
         /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="isAcknowledged">Filters based on acknowledgements (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CollectionOfChannelReturnResponse)</returns>
-        public async System.Threading.Tasks.Task<ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantWithHttpInfoAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChannelEngine.Channel.ApiClient.Client.ApiResponse<CollectionOfChannelReturnResponse>> ReturnGetDeclaredByMerchantWithHttpInfoAsync(List<ReturnStatus> statuses = default(List<ReturnStatus>), List<ReturnReason> reasons = default(List<ReturnReason>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? isAcknowledged = default(bool?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ChannelEngine.Channel.ApiClient.Client.RequestOptions localVarRequestOptions = new ChannelEngine.Channel.ApiClient.Client.RequestOptions();
@@ -528,6 +540,10 @@ namespace ChannelEngine.Channel.ApiClient.Api
             if (toDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ChannelEngine.Channel.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (isAcknowledged != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ChannelEngine.Channel.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "isAcknowledged", isAcknowledged));
             }
             if (page != null)
             {
